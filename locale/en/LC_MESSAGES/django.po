@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-08 09:20+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\app\models.py:11 .\app\models.py:36 .\app\models.py:61 .\app\models.py:92
+msgid "Created"
+msgstr "Created"
+
+#: .\app\models.py:16 .\app\models.py:41 .\app\models.py:66 .\app\models.py:97
+msgid "Updated"
+msgstr "Updated"
+
+#: .\app\models.py:22
+msgid "Partner Logo"
+msgstr "Partner Logo"
+
+#: .\app\models.py:23
+msgid "Partners Logo"
+msgstr "Partners Logo"
+
+#: .\app\models.py:47
+msgid "Counter"
+msgstr "Counter"
+
+#: .\app\models.py:48
+msgid "Counters"
+msgstr "Counters"
+
+#: .\app\models.py:72
+msgid "Study place"
+msgstr "Study place"
+
+#: .\app\models.py:73
+msgid "Study places"
+msgstr "Study places"
+
+#: .\app\models.py:85
+msgid "Country"
+msgstr "Country"
+
+#: .\app\models.py:103
+msgid "University"
+msgstr "University"
+
+#: .\app\models.py:104
+msgid "Universities"
+msgstr "Universities"
+
+#: .\ibridge_backend\settings.py:113
+msgid "Russian"
+msgstr "Russian"
+
+#: .\ibridge_backend\settings.py:114
+msgid "English"
+msgstr "English"

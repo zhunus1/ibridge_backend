@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  gunicorn: &django
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: django
+    restart: always
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+      - local_media_data:/media
+      - local_static_data:/static
+    environment:
+      - DJANGO_SETTINGS_MODULE=ibridge_backend.settings
+      - DEBUG=on
+      - ALLOWED_HOSTS=*
+      - CORS_ALLOWED_ORIGIN_REGEXES=.*
+      - "DATABASE_URL=psql://root:root@postgres:5432/root"
+      - "DJANGO_SECRET_KEY=x3lcsgqrjp@bffoeiw62-9jxo0+_2mj@kvn21h&*vt-@!3f6!2"
+      - DJANGO_SUPERUSER_USER=root
+      - DJANGO_SUPERUSER_EMAIL=root@example.com
+      - DJANGO_SUPERUSER_PASSWORD=root
+      - MEDIA_PATH=/media
+      - STATIC_PATH=/static
+      - WORKERS=2
+    expose:
+      - 8000
+    ports:
+      - 8080:8000
+    command: /start-gunicorn
+    networks:
+      main: {}
+
+  postgres:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=root
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    networks:
+      main: {}
+
+volumes:
+  local_postgres_data: {}
+  local_redis_data: {}
+  local_media_data: {}
+  local_static_data: {}
+
+networks:
+  main: {}
