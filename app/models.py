@@ -27,7 +27,7 @@ class PartnerLogo(TranslatableModel):
         ordering = ('-created',)
 
     def __str__(self):
-        return 'Лого %s' % self.name
+        return self.name
 
 class Counter(TranslatableModel):
     translations = TranslatedFields(
