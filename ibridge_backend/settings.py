@@ -14,10 +14,9 @@ import environ
 from pathlib import Path
 from django.utils.translation import gettext_lazy
 
-env = environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,18 +24,16 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str('DJANGO_SECRET_KEY')
+SECRET_KEY = 'x3lcsgqrjp@bffoeiw62-9jxo0+_2mj@kvn21h&*vt-@!3f6!2'
 
-API_KEY_SECRET = env.str('API_KEY_SECRET')
+API_KEY_SECRET = 'secret_mako'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG')
+DEBUG = True
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+ALLOWED_HOSTS = ['*']
 
 # CORS
-
-CORS_ALLOWED_ORIGIN_REGEXES = env.list('CORS_ALLOWED_ORIGIN_REGEXES')
-CORS_ORIGIN_ALLOW_ALL = env.bool('CORS_ORIGIN_ALLOW_ALL')
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -151,12 +148,12 @@ PARLER_LANGUAGES = {
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-STATIC_URL = env.str('STATIC_URL', '/static/')
-STATIC_ROOT = env.str('STATIC_PATH')
+STATIC_URL = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = '/static/'
 
 # Media files
-MEDIA_URL = env.str('MEDIA_URL', '/media/')
-MEDIA_ROOT = env.str('MEDIA_PATH')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
