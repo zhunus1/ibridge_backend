@@ -44,9 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'app',
-    'parler'
 ]
 
 MIDDLEWARE = [
@@ -128,21 +128,6 @@ TIME_ZONE = 'UTC'
 USE_L10N = True
 
 USE_TZ = True
-
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
-]
-
-PARLER_LANGUAGES = {
-    None: (
-        {'code': 'ru',},
-        {'code': 'en',},
-    ),
-    'default': {
-        'fallbacks': ['en'],
-        'hide_untranslated': False,
-    }
-}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

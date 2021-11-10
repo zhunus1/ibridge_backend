@@ -8,45 +8,18 @@ from django.utils.translation import *
 
 from .models import (
     PartnerLogo,
-    Counter,
-    Country,
-    University,
 )
 from .serializers import (
     LogoSerializer,
-    CounterSerializer,
-    CountrySerializer,
-    UniversitySerializer,
     FormSerializer,
     CalculatorFormSerializer,
 )
-# Create your views here.
-class UniversityListView(APIView):
-
-    def get(self, request, format=None):
-        universities = University.objects.all()
-        serializer = UniversitySerializer(universities, many=True)
-        return Response(serializer.data)
-
+# Create your views here
 class LogoListView(APIView):
 
     def get(self, request, format=None):
         logos = PartnerLogo.objects.all()
         serializer = LogoSerializer(logos, context={"request": request}, many=True)
-        return Response(serializer.data)
-
-class CounterListView(APIView):
-
-    def get(self, request, format=None):
-        counters = Counter.objects.all()
-        serializer = CounterSerializer(counters, many=True)
-        return Response(serializer.data)
-
-class CountryListView(APIView):
-
-    def get(self, request, format=None):
-        countries = Country.objects.all()
-        serializer = CountrySerializer(countries, many=True)
         return Response(serializer.data)
 
 class FormView(APIView):
