@@ -34,7 +34,32 @@ ALLOWED_HOSTS = ['*']
 
 # CORS
 CORS_ORIGIN_ALLOW_ALL = True
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://localhost:3000",
+    "http:/ibridge.kz",
+    "https:/ibridge.kz",
+]
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+    "x-api-key",
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -87,8 +112,12 @@ WSGI_APPLICATION = 'ibridge_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
