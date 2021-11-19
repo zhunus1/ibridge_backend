@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .permissions import APIKeyPermission
 from django.utils.translation import *
+from django.core.mail import EmailMessage
 
 from .models import (
     PartnerLogo,
