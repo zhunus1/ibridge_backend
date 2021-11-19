@@ -35,6 +35,9 @@ class FormView(APIView):
             'FIELDS[LAST_NAME]':serializer.validated_data['last_name'],
             'FIELDS[PHONE][0][VALUE]':serializer.validated_data['phone_number'],
         }
+        message = "Имя:%s \n Фамилия:%s \n Номер телефона:%s" % (serializer.validated_data['first_name'], serializer.validated_data['last_name'], serializer.validated_data['phone_number'])
+        email = EmailMessage('Форма обратной связи', message, to=['admissions@ibridge.kz'])
+        email.send()
 
         response = requests.post('https://b24-ofa1r8.bitrix24.ru/rest/1/gz9zumkmsvsncx45/crm.lead.add.json', params=params)
         if response.status_code==200:
@@ -55,6 +58,9 @@ class CalculatorFormView(APIView):
             'FIELDS[PHONE][0][VALUE]':serializer.validated_data['phone_number'],
             'FIELDS[COMMENTS]':serializer.validated_data['comments'],
         }
+        message = "Имя:%s \n Фамилия:%s \n Номер телефона:%s \n Калькулятор:%s" % (serializer.validated_data['first_name'], serializer.validated_data['last_name'], serializer.validated_data['phone_number'], serializer.validated_data['comments'])
+        email = EmailMessage('Калькулятор обучения', message, to=['admissions@ibridge.kz'])
+        email.send()
 
         response = requests.post('https://b24-ofa1r8.bitrix24.ru/rest/1/ykgl57kxbmegq1m5/crm.lead.add.json', params=params)
         if response.status_code==200:
