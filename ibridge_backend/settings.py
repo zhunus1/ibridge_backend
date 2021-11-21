@@ -37,6 +37,13 @@ TELEGRAM_BOT_API = '2146180175:AAFz2qzsCx8xY38qCrS1IxDKaVPmbpvxmO4'
 # CORS
 CORS_ORIGIN_ALLOW_ALL = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST="smtp.yandex.ru"
+EMAIL_HOST_USER= "admissions@ibridge.kz"
+EMAIL_HOST_PASSWORD="iBridge888$"
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+
 # Application definition
 
 INSTALLED_APPS = [
