@@ -41,13 +41,13 @@ class FormView(APIView):
             'FIELDS[PHONE][0][VALUE]':serializer.validated_data['phone_number'],
         }
         message = "Имя: %s \nФамилия: %s \nНомер телефона: %s" % (serializer.validated_data['first_name'], serializer.validated_data['last_name'], serializer.validated_data['phone_number'])
-        email = EmailMessage('Форма обратной связи', message, to=['admissions@ibridge.kz'])
-        email.send()
+        # email = EmailMessage('Форма обратной связи', message, to=['admissions@ibridge.kz'])
+        # email.send()
 
-        send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=-683142408' + '&parse_mode=Markdown&text=' + message
+        send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=-1001150175962' + '&parse_mode=Markdown&text=' + message
         response = requests.get(send_text)
 
-        response = requests.post('https://b24-ofa1r8.bitrix24.ru/rest/1/gz9zumkmsvsncx45/crm.lead.add.json', params=params)
+        #response = requests.post('https://b24-ofa1r8.bitrix24.ru/rest/1/gz9zumkmsvsncx45/crm.lead.add.json', params=params)
         if response.status_code==200:
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(data={'Error':response.status_code})
@@ -70,7 +70,7 @@ class CalculatorFormView(APIView):
         email = EmailMessage('Калькулятор обучения', message, to=['admissions@ibridge.kz'])
         email.send()
 
-        send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=-683142408' + '&parse_mode=Markdown&text=' + message
+        send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=-1001150175962' + '&parse_mode=Markdown&text=' + message
         response = requests.get(send_text)
 
         response = requests.post('https://b24-ofa1r8.bitrix24.ru/rest/1/ykgl57kxbmegq1m5/crm.lead.add.json', params=params)
