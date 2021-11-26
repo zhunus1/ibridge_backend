@@ -44,11 +44,9 @@ class FormView(APIView):
         email = EmailMessage('Форма обратной связи', message, to=['admissions@ibridge.kz'])
         email.send()
 
-        session_telegram = requests.Session()
         send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=-1001150175962' + '&parse_mode=Markdown&text=' + message
         response_telegram = session_telegram.get(send_text)
 
-        session_bitrix = requests.Session()
         response = session_bitrix.post('https://ibridge.bitrix24.ru/rest/1/gz9zumkmsvsncx45/crm.lead.add.json', params=params)
 
         if response_telegram.status_code==200:
