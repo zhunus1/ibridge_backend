@@ -44,11 +44,14 @@ class FormView(APIView):
         email = EmailMessage('Форма обратной связи', message, to=['admissions@ibridge.kz'])
         email.send()
 
+        session_telegram = requests.Session()
         send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=-1001150175962' + '&parse_mode=Markdown&text=' + message
-        response = requests.get(send_text)
+        response_telegram = session_telegram.get(send_text)
 
-        response = requests.post('https://b24-ofa1r8.bitrix24.ru/rest/1/gz9zumkmsvsncx45/crm.lead.add.json', params=params)
-        if response.status_code==200:
+        session_bitrix = requests.Session()
+        response = session_bitrix.post('https://ibridge.bitrix24.ru/rest/1/gz9zumkmsvsncx45/crm.lead.add.json', params=params)
+
+        if response_telegram.status_code==200:
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(data={'Error':response.status_code})
 
@@ -71,9 +74,10 @@ class CalculatorFormView(APIView):
         email.send()
 
         send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=-1001150175962' + '&parse_mode=Markdown&text=' + message
-        response = requests.get(send_text)
+        response_telegram = requests.get(send_text)
 
-        response = requests.post('https://b24-ofa1r8.bitrix24.ru/rest/1/ykgl57kxbmegq1m5/crm.lead.add.json', params=params)
-        if response.status_code==200:
+        response = requests.post('https://ibridge.bitrix24.ru/rest/1/ykgl57kxbmegq1m5/crm.lead.add.json', params=params)
+
+        if response_telegram.status_code==200:
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(data={'Error':response.status_code})

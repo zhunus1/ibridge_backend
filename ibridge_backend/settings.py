@@ -43,6 +43,7 @@ EMAIL_HOST_USER= "admissions@ibridge.kz"
 EMAIL_HOST_PASSWORD="iBridge888$"
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
+DEFAULT_FROM_EMAIL=EMAIL_HOST_USER
 
 # Application definition
 
