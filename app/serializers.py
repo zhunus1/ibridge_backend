@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import (
     PartnerLogo,
+    Form,
 )
 
 class LogoSerializer(serializers.ModelSerializer):
@@ -18,25 +19,21 @@ class LogoSerializer(serializers.ModelSerializer):
         logo_url = logo.image.url
         return request.build_absolute_uri(logo_url)
 
-class FormSerializer(serializers.Serializer):
-    first_name = serializers.CharField(
-        max_length=255,
-    )
-    last_name = serializers.CharField(
-        max_length=255,
-    )
-    phone_number = serializers.CharField(
-        max_length=128,
-    )
+class FormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Form
+        fields = (
+            'first_name',
+            'last_name',
+            'phone_number',
+        )
 
-class CalculatorFormSerializer(serializers.Serializer):
-    first_name = serializers.CharField(
-        max_length=255,
-    )
-    last_name = serializers.CharField(
-        max_length=255,
-    )
-    phone_number = serializers.CharField(
-        max_length=128,
-    )
-    comments = serializers.CharField()
+class CalculatorFormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Form
+        fields = (
+            'first_name',
+            'last_name',
+            'phone_number',
+            'comments',
+        )

@@ -38,7 +38,9 @@ class Form(models.Model):
     phone_number = models.CharField(
         max_length=255,
     )
-    comments = models.TextField()
+    comments = models.TextField(
+        blank=True,
+    )
 
     created = models.DateTimeField(
         verbose_name = ugettext_lazy("Created"),
@@ -49,7 +51,7 @@ class Form(models.Model):
         verbose_name = ugettext_lazy("Updated"),
         auto_now = True,
     )
-    
+
     class Meta:
 
         verbose_name = ugettext_lazy("Client Form")
@@ -57,4 +59,4 @@ class Form(models.Model):
         ordering = ('-created',)
 
     def __str__(self):
-        return self.phone
+        return self.phone_number

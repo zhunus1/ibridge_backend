@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from .permissions import APIKeyPermission
 from django.utils.translation import *
-from django.core.mail import EmailMessage
 from django.conf import settings
 
 from .models import (
@@ -18,7 +17,6 @@ from .serializers import (
     CalculatorFormSerializer,
 )
 
-bot_token = settings.TELEGRAM_BOT_API
 
 # Create your views here
 class LogoListView(APIView):
@@ -33,51 +31,17 @@ class FormView(APIView):
 
     def post(self, request):
         serializer = FormSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-
-        params = {
-            'FIELDS[TITLE]': 'Форма обратной связи',
-            'FIELDS[NAME]':serializer.validated_data['first_name'],
-            'FIELDS[LAST_NAME]':serializer.validated_data['last_name'],
-            'FIELDS[PHONE][0][VALUE]':serializer.validated_data['phone_number'],
-        }
-        
-        message = "Имя: %s \nФамилия: %s \nНомер телефона: %s" % (serializer.validated_data['first_name'], serializer.validated_data['last_name'], serializer.validated_data['phone_number'])
-        email = EmailMessage('Форма обратной связи', message, to=['admissions@ibridge.kz'])
-        email.send()
-
-        send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=-1001150175962' + '&parse_mode=Markdown&text=' + message
-        response_telegram = session_telegram.get(send_text)
-
-        response = session_bitrix.post('https://ibridge.bitrix24.ru/rest/1/gz9zumkmsvsncx45/crm.lead.add.json', params=params)
-
-        if response_telegram.status_code==200:
+        if serializer.is_valid():
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(data={'Error':response.status_code})
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class CalculatorFormView(APIView):
     permission_classes = (APIKeyPermission,)
 
     def post(self, request):
         serializer = CalculatorFormSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-
-        params = {
-            'FIELDS[TITLE]': 'Калькулятор обучения',
-            'FIELDS[NAME]':serializer.validated_data['first_name'],
-            'FIELDS[LAST_NAME]':serializer.validated_data['last_name'],
-            'FIELDS[PHONE][0][VALUE]':serializer.validated_data['phone_number'],
-            'FIELDS[COMMENTS]':serializer.validated_data['comments'],
-        }
-        message = "Имя: %s \nФамилия: %s \nНомер телефона: %s \nКалькулятор: %s" % (serializer.validated_data['first_name'], serializer.validated_data['last_name'], serializer.validated_data['phone_number'], serializer.validated_data['comments'])
-        email = EmailMessage('Калькулятор обучения', message, to=['admissions@ibridge.kz'])
-        email.send()
-
-        send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=-1001150175962' + '&parse_mode=Markdown&text=' + message
-        response_telegram = requests.get(send_text)
-
-        response = requests.post('https://ibridge.bitrix24.ru/rest/1/ykgl57kxbmegq1m5/crm.lead.add.json', params=params)
-
-        if response_telegram.status_code==200:
+        if serializer.is_valid():
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(data={'Error':response.status_code})
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
