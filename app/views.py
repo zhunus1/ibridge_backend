@@ -10,6 +10,7 @@ from django.conf import settings
 
 from .models import (
     PartnerLogo,
+    Form,
 )
 from .serializers import (
     LogoSerializer,
@@ -40,6 +41,7 @@ class FormView(APIView):
             'FIELDS[LAST_NAME]':serializer.validated_data['last_name'],
             'FIELDS[PHONE][0][VALUE]':serializer.validated_data['phone_number'],
         }
+        
         message = "Имя: %s \nФамилия: %s \nНомер телефона: %s" % (serializer.validated_data['first_name'], serializer.validated_data['last_name'], serializer.validated_data['phone_number'])
         email = EmailMessage('Форма обратной связи', message, to=['admissions@ibridge.kz'])
         email.send()

@@ -29,14 +29,15 @@ class PartnerLogo(models.Model):
 
 
 class Form(models.Model):
-    name = models.CharField(
+    first_name = models.CharField(
         max_length=255,
     )
-
-    phone = models.CharField(
+    last_name = models.CharField(
         max_length=255,
     )
-
+    phone_number = models.CharField(
+        max_length=255,
+    )
     comments = models.TextField()
 
     created = models.DateTimeField(
@@ -48,6 +49,7 @@ class Form(models.Model):
         verbose_name = ugettext_lazy("Updated"),
         auto_now = True,
     )
+    
     class Meta:
 
         verbose_name = ugettext_lazy("Client Form")
