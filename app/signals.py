@@ -48,8 +48,6 @@ def save_form(sender, instance, created, **kwargs):
                 'FIELDS[PHONE][0][VALUE]':instance.phone_number,
             }
 
-        opts = {'timeout': 10}
-        
+        async_task('app.signals.send_bitrix', params)
         async_task('app.signals.send_telegram', message)
         async_task('app.signals.send_yandex', message)
-        async_task('app.signals.send_bitrix', params, q_options=opts)
