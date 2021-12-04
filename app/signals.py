@@ -13,8 +13,8 @@ bot_token = settings.TELEGRAM_BOT_API
 
 def send_telegram(message):
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=-1001150175962' + '&parse_mode=Markdown&text=' + message
-    response_telegram = requests.get(send_text)
-
+    response = requests.get(send_text)
+    return response.status_code
 
 def send_yandex(message):
     email = EmailMessage('Форма обратной связи', message, to=['admissions@ibridge.kz'])
@@ -27,6 +27,7 @@ def send_bitrix(params):
     else:
         url = 'https://ibridge.bitrix24.kz/rest/1/40df1gu85r4s1itm/crm.lead.add.json'
     response = requests.post(url, params=params)
+    return response.status_code
 
 
 @receiver(post_save, sender=Form)
