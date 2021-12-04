@@ -27,6 +27,7 @@ def send_bitrix(params):
     else:
         url = 'https://ibridge.bitrix24.kz/rest/1/40df1gu85r4s1itm/crm.lead.add.json'
     response = requests.post(url, params=params)
+    send_yandex(response.status_code)
     return response.status_code
 
 
