@@ -33,7 +33,7 @@ def save_form(sender, instance, created, **kwargs):
         if instance.comments:
             message = "Имя: %s \nФамилия: %s \nНомер телефона: %s \nКалькулятор: %s" % (instance.first_name, instance.last_name, instance.phone_number, instance.comments)
             params = {
-                'FIELDS[TITLE]': 'Калькулятор обучения',
+                'FIELDS[TITLE]': 'Новая заявка (лид)',
                 'FIELDS[NAME]':instance.first_name,
                 'FIELDS[LAST_NAME]':instance.last_name,
                 'FIELDS[PHONE][0][VALUE]':instance.phone_number,
@@ -42,7 +42,7 @@ def save_form(sender, instance, created, **kwargs):
         else:
             message = "Имя: %s \nФамилия: %s \nНомер телефона: %s" % (instance.first_name, instance.last_name, instance.phone_number)
             params = {
-                'FIELDS[TITLE]': 'Форма обратной связи',
+                'FIELDS[TITLE]': 'Новая заявка (лид)',
                 'FIELDS[NAME]':instance.first_name,
                 'FIELDS[LAST_NAME]':instance.last_name,
                 'FIELDS[PHONE][0][VALUE]':instance.phone_number,
