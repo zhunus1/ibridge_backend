@@ -22,7 +22,11 @@ def send_yandex(message):
 
 
 def send_bitrix(params):
-    response = requests.post('https://ibridge.bitrix24.ru/rest/1/gz9zumkmsvsncx45/crm.lead.add.json', params=params)
+    if 'FIELDS[COMMENTS]' in params:
+        url = 'https://ibridge.bitrix24.kz/rest/1/sf63k293k3wu2tg5/'
+    else:
+        url = 'https://ibridge.bitrix24.kz/rest/1/d7o2n4j7sx9rt2bm/'
+    response = requests.post(url, params=params)
 
 
 @receiver(post_save, sender=Form)
