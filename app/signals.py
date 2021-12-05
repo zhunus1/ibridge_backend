@@ -49,5 +49,5 @@ def save_form(sender, instance, created, **kwargs):
             }
 
         async_task('app.signals.send_bitrix', params)
-        # async_task('app.signals.send_telegram', message)
-        # async_task('app.signals.send_yandex', message)
+        async_task('app.signals.send_telegram', message)
+        async_task('app.signals.send_yandex', message)
