@@ -13,6 +13,7 @@ import os
 import environ
 from pathlib import Path
 from django.utils.translation import gettext_lazy
+from corsheaders.defaults import default_headers
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,6 +37,12 @@ TELEGRAM_BOT_API = '2146180175:AAFz2qzsCx8xY38qCrS1IxDKaVPmbpvxmO4'
 
 # CORS
 CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "x-api-key",
+    "X-API_KEY",
+    "HTTP_X_API_KEY",
+]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST="smtp.yandex.ru"
