@@ -21,9 +21,7 @@ def send_yandex(message):
 
 
 def send_bitrix(params):
-    url = 'https://ibridge.bitrix24.kz/rest/1/71tukf797xn9y99j/crm.lead.add.json'
-    if 'FIELDS[COMMENTS]' in params:
-        url = 'https://ibridge.bitrix24.kz/rest/1/wc71nhmackabzgem/crm.lead.add.json'
+    url = 'https://ibridge.bitrix24.kz/rest/1/4b3cdysditcku813/crm.deal.add.json'
     response = requests.post(url, params=params)
 
 
