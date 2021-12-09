@@ -32,20 +32,19 @@ def save_form(sender, instance, created, **kwargs):
     if created:
         if instance.comments:
             message = "Имя: %s \nФамилия: %s \nНомер телефона: %s \nКалькулятор: %s" % (instance.first_name, instance.last_name, instance.phone_number, instance.comments)
+            name = "%s %s" % (instance.first_name, instance.last_name)
+            comments = "%s \n %s" % (instance.phone_number, instance.comments)
             params = {
-                'FIELDS[TITLE]': 'Новая заявка (лид)',
-                'FIELDS[NAME]':instance.first_name,
-                'FIELDS[LAST_NAME]':instance.last_name,
-                'FIELDS[PHONE][0][VALUE]':instance.phone_number,
-                'FIELDS[COMMENTS]':instance.comments,
+                'FIELDS[TITLE]': name,
+                'FIELDS[COMMENTS]': comments,
             }
         else:
             message = "Имя: %s \nФамилия: %s \nНомер телефона: %s" % (instance.first_name, instance.last_name, instance.phone_number)
+            name = "%s %s" % (instance.first_name, instance.last_name)
+            comments = "%s \n %s" % (instance.phone_number, instance.comments)
             params = {
-                'FIELDS[TITLE]': 'Новая заявка (лид)',
-                'FIELDS[NAME]':instance.first_name,
-                'FIELDS[LAST_NAME]':instance.last_name,
-                'FIELDS[PHONE][0][VALUE]':instance.phone_number,
+                'FIELDS[TITLE]': name,
+                'FIELDS[COMMENTS]': comments,
             }
 
         async_task('app.signals.send_bitrix', params)
