@@ -35,6 +35,7 @@ def save_form(sender, instance, created, **kwargs):
             params = {
                 'FIELDS[TITLE]': name,
                 'FIELDS[COMMENTS]': comments,
+                'FIELDS[SOURCE_ID]': 'WEB',
             }
         else:
             message = "Имя: %s \nФамилия: %s \nНомер телефона: %s" % (instance.first_name, instance.last_name, instance.phone_number)
@@ -43,6 +44,7 @@ def save_form(sender, instance, created, **kwargs):
             params = {
                 'FIELDS[TITLE]': name,
                 'FIELDS[COMMENTS]': comments,
+                'FIELDS[SOURCE_ID]': 'WEB',
             }
 
         async_task('app.signals.send_bitrix', params)
