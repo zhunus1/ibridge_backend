@@ -3,6 +3,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
 import requests
+import json
 from django.core.mail import EmailMessage
 from .models import (
     Form,
@@ -20,33 +21,43 @@ def send_yandex(message):
     email.send()
 
 
-def send_bitrix(params):
-    url = 'https://ibridge.bitrix24.kz/rest/1/4b3cdysditcku813/crm.deal.add.json'
-    response = requests.post(url, params=params)
+def send_bitrix(params, contact):
+    url = 'https://ibridge.bitrix24.kz/rest/1/fluv6268xjs8yywo/crm.contact.add.json'
+    response = requests.post(url, params=contact)
+    
+    params['FIELDS[CONTACT_ID]'] = response.json()['result']
 
+    url = 'https://ibridge.bitrix24.kz/rest/1/hf632uh1e28esic5/crm.deal.add.json'
+    response = requests.post(url, params=params)
 
 @receiver(post_save, sender=Form)
 def save_form(sender, instance, created, **kwargs):
     if created:
+        contact = {
+            "FIELDS[NAME]": instance.first_name,
+            "FIELDS[LAST_NAME]": instance.last_name,
+            "FIELDS[TYPE_ID]": "CLIENT",
+            "FIELDS[OPENED]": "Y",
+            "FIELDS[SOURCE_ID]": "WEB",
+            # "FIELDS[PHONE][VALUE]": instance.phone_number, 
+            # "FIELDS[PHONE][VALUE_TYPE]": "WORK" 
+        }
+
         if instance.comments:
-            message = "Имя: %s \nФамилия: %s \nНомер телефона: %s \nКалькулятор: %s" % (instance.first_name, instance.last_name, instance.phone_number, instance.comments)
-            name = "%s %s" % (instance.first_name, instance.last_name)
-            comments = "%s \n %s" % (instance.phone_number, instance.comments)
+            comments = instance.comments
+            message = "Имя: %s \nФамилия: %s \nНомер телефона: %s \Комментарий: %s" % (instance.first_name, instance.last_name, instance.phone_number, instance.comments)
             params = {
-                'FIELDS[TITLE]': name,
+                'FIELDS[TITLE]': 'Веб-сайт ibridge.kz',
                 'FIELDS[COMMENTS]': comments,
                 'FIELDS[SOURCE_ID]': 'WEB',
             }
         else:
             message = "Имя: %s \nФамилия: %s \nНомер телефона: %s" % (instance.first_name, instance.last_name, instance.phone_number)
-            name = "%s %s" % (instance.first_name, instance.last_name)
-            comments = "%s \n %s" % (instance.phone_number, instance.comments)
             params = {
-                'FIELDS[TITLE]': name,
-                'FIELDS[COMMENTS]': comments,
+                'FIELDS[TITLE]': 'Веб-сайт ibridge.kz',
                 'FIELDS[SOURCE_ID]': 'WEB',
             }
 
-        async_task('app.signals.send_bitrix', params)
-        async_task('app.signals.send_telegram', message)
-        async_task('app.signals.send_yandex', message)
+        async_task('app.signals.send_bitrix', params=params, contact=contact)
+   #     async_task('app.signals.send_telegram', message)
+    #    async_task('app.signals.send_yandex', message)
