@@ -39,8 +39,8 @@ def save_form(sender, instance, created, **kwargs):
             "FIELDS[TYPE_ID]": "CLIENT",
             "FIELDS[OPENED]": "Y",
             "FIELDS[SOURCE_ID]": "WEB",
-            # "FIELDS[PHONE][VALUE]": instance.phone_number, 
-            # "FIELDS[PHONE][VALUE_TYPE]": "WORK" 
+            "FIELDS[PHONE][0][VALUE_TYPE]" :"WORK",
+            "FIELDS[PHONE][0][VALUE]" :instance.phone_number,
         }
 
         if instance.comments:
@@ -57,7 +57,7 @@ def save_form(sender, instance, created, **kwargs):
                 'FIELDS[TITLE]': 'Веб-сайт ibridge.kz',
                 'FIELDS[SOURCE_ID]': 'WEB',
             }
-
+        
         async_task('app.signals.send_bitrix', params=params, contact=contact)
-   #     async_task('app.signals.send_telegram', message)
-    #    async_task('app.signals.send_yandex', message)
+        async_task('app.signals.send_telegram', message)
+        async_task('app.signals.send_yandex', message)
