@@ -65,6 +65,8 @@ INSTALLED_APPS = [
     'django_q',
     'rest_framework',
     'app',
+    'countries',
+    'universities',
 ]
 
 MIDDLEWARE = [
