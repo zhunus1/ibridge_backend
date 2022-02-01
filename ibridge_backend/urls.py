@@ -21,7 +21,7 @@ from django.utils.translation import gettext_lazy
 from django.conf import settings
 
 urlpatterns = i18n_patterns(
-    path(gettext_lazy('admin/'), admin.site.urls),
+    path(gettext_lazy('ex3qfyp0n-admin/'), admin.site.urls),
     path('app/', include('app.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
