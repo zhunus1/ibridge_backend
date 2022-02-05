@@ -78,6 +78,8 @@ class Faculty(models.Model):
 
 class Partner(models.Model):
 
+    partner_image = models.ImageField(upload_to ='universities/image/')
+
     partner_name = models.CharField(
         max_length=255,
     )
