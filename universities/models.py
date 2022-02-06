@@ -51,6 +51,9 @@ class Counter(models.Model):
         verbose_name = ugettext_lazy("Counter")
         verbose_name_plural = ugettext_lazy("Counters")
         ordering = ('-created',)
+    
+    def __str__(self):
+        return '%s - %s' % (self.counter_value, self.counter_text)
 
 class Faculty(models.Model):
     text = models.CharField(

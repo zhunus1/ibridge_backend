@@ -29,6 +29,9 @@ class TranslationLanguage(models.Model):
         verbose_name = ugettext_lazy("Translation Language")
         verbose_name_plural = ugettext_lazy("Translation Languages")
         ordering = ('-created',)
+    
+    def __str__(self):
+        return self.language
 
 class CountryTranslation(models.Model):
     language = models.ForeignKey(

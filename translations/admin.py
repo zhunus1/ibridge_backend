@@ -6,5 +6,39 @@ from .models import (
 )
 # Register your models here.
 admin.site.register(TranslationLanguage)
-admin.site.register(CountryTranslation)
-admin.site.register(PartnerTranslation)
+
+class CountryTranslationAdmin(admin.ModelAdmin):
+    list_display = (
+        'country_name', 
+        'language', 
+        'created', 
+        'updated'
+    )
+    list_filter = (
+        'language__language',
+        'country__country_name',
+    )
+    search_fields = (
+        "country_name",
+    )
+
+
+admin.site.register(CountryTranslation, CountryTranslationAdmin)
+
+class PartnerTranslationAdmin(admin.ModelAdmin):
+    list_display = (
+        'partner_name', 
+        'language', 
+        'created', 
+        'updated'
+    )
+    list_filter = (
+        'language__language',
+        'partner__country__country_name',
+    )
+    search_fields = (
+        "partner_name",
+    )
+
+
+admin.site.register(PartnerTranslation, PartnerTranslationAdmin)
