@@ -26,39 +26,11 @@ class Country(models.Model):
         max_length=255,
     )
 
-    banner_title = models.CharField(
-        max_length=255,
-    )
-    
-    banner_sub_title = models.TextField(
-        blank=True,
-    )
-
     banner_image = models.ImageField(upload_to ='countries/banner/')
-
-    about_text = models.TextField(
-        blank=True,
-    )
 
     about_image = models.ManyToManyField(
         to = AboutImage,
         related_name='countries'
-    )
-
-    advantage_1 = models.TextField(
-        blank=True,
-    )
-
-    advantage_2 = models.TextField(
-        blank=True,
-    )
-
-    advantage_3 = models.TextField(
-        blank=True,
-    )
-
-    advantage_4 = models.TextField(
-        blank=True,
     )
 
     created = models.DateTimeField(

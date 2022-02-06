@@ -78,21 +78,7 @@ class Faculty(models.Model):
 
 class Partner(models.Model):
 
-    partner_image = models.ImageField(upload_to ='universities/image/')
-
     partner_name = models.CharField(
-        max_length=255,
-    )
-
-    foundation_year = models.CharField(
-        max_length=255,
-    )
-
-    location = models.CharField(
-        max_length=255,
-    )
-
-    payment = models.CharField(
         max_length=255,
     )
 
@@ -101,27 +87,9 @@ class Partner(models.Model):
         on_delete=models.CASCADE
     )
 
-    counters = models.ManyToManyField(
-        to = Counter,
-        related_name='partners'
-    )
-
-    about_text = models.TextField(
-        blank=True,
-    )
+    partner_image = models.ImageField(upload_to ='universities/image/')
 
     about_video_url = models.URLField()
-
-    faculties = models.ManyToManyField(
-        to = Faculty,
-        related_name='partners'
-    )
-
-    partner_type = models.ForeignKey(
-        to=PartnerType, 
-        on_delete=models.CASCADE,
-        related_name='partners'
-    )
 
     created = models.DateTimeField(
         verbose_name = ugettext_lazy("Created"),

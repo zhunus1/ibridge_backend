@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'app',
     'countries',
     'universities',
+    'translations',
 ]
 
 MIDDLEWARE = [

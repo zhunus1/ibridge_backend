@@ -9,21 +9,22 @@ from .models import (
 admin.site.register(Counter)
 admin.site.register(Faculty)
 admin.site.register(PartnerType)
+admin.site.register(Partner)
 
-class PartnerAdmin(admin.ModelAdmin):
-    list_display = (
-        'partner_name', 
-        'partner_type', 
-        'created', 
-        'updated'
-    )
-    list_filter = (
-        'country__country_name',
-        'partner_type__title',
-    )
-    search_fields = (
-        "partner_name",
-    )
+# class PartnerAdmin(admin.ModelAdmin):
+#     list_display = (
+#         'partner_name', 
+#         'partner_type', 
+#         'created', 
+#         'updated'
+#     )
+#     list_filter = (
+#         'country__country_name',
+#         'partner_type__title',
+#     )
+#     search_fields = (
+#         "partner_name",
+#     )
 
 
-admin.site.register(Partner, PartnerAdmin)
+# admin.site.register(Partner, PartnerAdmin)
