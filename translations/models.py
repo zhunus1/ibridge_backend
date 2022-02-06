@@ -10,7 +10,7 @@ from django.utils.translation import *
 
 # Create your models here.
 class TranslationLanguage(models.Model):
-    language = models.CharField(
+    title = models.CharField(
         max_length=255,
     )
 
@@ -108,7 +108,7 @@ class PartnerTranslation(models.Model):
     language = models.ForeignKey(
         to = TranslationLanguage, 
         on_delete = models.CASCADE,
-        related_name='partner_translations'
+        related_name = 'partner_translations'
     )
 
     partner_name = models.CharField(

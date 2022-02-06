@@ -64,7 +64,7 @@ class PartnerTranslationSerializer(serializers.ModelSerializer):
         )
 
 class PartnerDetailSerializer(serializers.ModelSerializer):
-    translations = PartnerTranslationSerializer()
+    partner_translations = PartnerTranslationSerializer(many=True)
     class Meta:
         model = Partner
         fields = (
@@ -72,5 +72,5 @@ class PartnerDetailSerializer(serializers.ModelSerializer):
             'partner_name',
             'partner_image',
             'about_video_url',
-            'translations',
+            'partner_translations',
         )

@@ -87,7 +87,8 @@ class Partner(models.Model):
 
     country = models.ForeignKey(
         to=Country, 
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name='partners'
     )
 
     partner_image = models.ImageField(upload_to ='universities/image/')

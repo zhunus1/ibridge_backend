@@ -26,7 +26,7 @@ class TranslationLanguageSearializer(serializers.ModelSerializer):
     class Meta:
         model = TranslationLanguage
         fields = (
-            'language',
+            'title',
         )
 
 class CountryTranslationsSearializer(serializers.ModelSerializer):
