@@ -42,7 +42,8 @@ class CountryTranslation(models.Model):
 
     country = models.ForeignKey(
         to = Country, 
-        on_delete = models.CASCADE
+        on_delete = models.CASCADE,
+        related_name='country_translations'
     )
 
     country_name = models.CharField(

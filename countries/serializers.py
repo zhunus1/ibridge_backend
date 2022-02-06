@@ -3,6 +3,10 @@ from .models import (
     Country, 
     AboutImage,
 )
+from translations.models import (
+    CountryTranslation,
+    TranslationLanguage,
+)
 
 class AboutImagesSerializer(serializers.ModelSerializer):
     about_image_url = serializers.SerializerMethodField()
@@ -18,6 +22,29 @@ class AboutImagesSerializer(serializers.ModelSerializer):
         about_image_url = about_image.image.url
         return request.build_absolute_uri(about_image_url)
 
+class TranslationLanguageSearializer(serializers.ModelSerializer):
+    class Meta:
+        model = TranslationLanguage
+        fields = (
+            'language',
+        )
+
+class CountryTranslationsSearializer(serializers.ModelSerializer):
+    language = TranslationLanguageSearializer()
+    class Meta:
+        model = CountryTranslation
+        fields = (
+            'language',
+            'country_name',
+            'banner_title',
+            'banner_sub_title',
+            'about_text',
+            'advantage_1',
+            'advantage_2',
+            'advantage_3',
+            'advantage_4',
+        )
+
 class CountryListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Country
@@ -28,18 +55,13 @@ class CountryListSerializer(serializers.ModelSerializer):
 
 class CountryDetailSerializer(serializers.ModelSerializer):
     about_image = AboutImagesSerializer(many=True)
+    country_translations = CountryTranslationsSearializer(many=True)
     class Meta:
         model = Country
         fields = (
             'pk',
             'country_name',
-            'banner_title',
-            'banner_sub_title',
-            'banner_image',
-            'about_text',
             'about_image',
-            'advantage_1',
-            'advantage_2',
-            'advantage_3',
-            'advantage_4',
+            'banner_image',
+            'country_translations',
         )

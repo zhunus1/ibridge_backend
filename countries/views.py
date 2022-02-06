@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Country
+from translations.models import CountryTranslation
 from .serializers import (
     CountryDetailSerializer,
     CountryListSerializer
