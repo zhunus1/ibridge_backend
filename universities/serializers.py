@@ -74,3 +74,7 @@ class PartnerDetailSerializer(serializers.ModelSerializer):
             'about_video_url',
             'partner_translations',
         )
+    
+class PartnerFilterSerializer(serializers.Serializer):
+    country = serializers.CharField(required=False)
+    partner_type = serializers.CharField(required=False)

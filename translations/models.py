@@ -31,7 +31,7 @@ class TranslationLanguage(models.Model):
         ordering = ('-created',)
     
     def __str__(self):
-        return self.language
+        return self.title
 
 class CountryTranslation(models.Model):
     language = models.ForeignKey(
