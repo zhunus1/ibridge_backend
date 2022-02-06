@@ -5,7 +5,9 @@ from .models import (
     PartnerType,
     Faculty
 )
-from countries.serializers import CountryListSerializer
+from translations.models import PartnerTranslation
+from countries.serializers import TranslationLanguageSearializer
+
 #Detailed partner by pk
 
 #showl all partners with filter type
@@ -37,30 +39,38 @@ class PartnerListSerializer(serializers.ModelSerializer):
         model = Partner
         fields = (
             'pk',
-            'partner_image',
             'partner_name',
+            'partner_image',
+            'about_video_url',
+        )
+
+class PartnerTranslationSerializer(serializers.ModelSerializer):
+    language = TranslationLanguageSearializer()
+    faculties = FacultySerializer(many=True)
+    partner_type = PartnerTypeSerializer()
+    counters = CounterSerializer(many=True)
+    class Meta:
+        model = PartnerTranslation
+        fields = (
+            'language',
+            'partner_name',
+            'foundation_year',
             'location',
             'payment',
+            'about_text',
+            'faculties',
+            'partner_type',
+            'counters',
         )
 
 class PartnerDetailSerializer(serializers.ModelSerializer):
-    country = CountryListSerializer()
-    counters = CounterSerializer(many=True)
-    faculties = FacultySerializer(many=True)
-    partner_type = PartnerTypeSerializer()
+    translations = PartnerTranslationSerializer()
     class Meta:
         model = Partner
         fields = (
             'pk',
             'partner_name',
             'partner_image',
-            'foundation_year',
-            'location',
-            'payment',
-            'country',
-            'counters',
-            'about_text',
             'about_video_url',
-            'faculties',
-            'partner_type',
+            'translations',
         )

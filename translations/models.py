@@ -101,18 +101,14 @@ class PartnerTranslation(models.Model):
 
     partner = models.ForeignKey(
         to = Partner, 
-        on_delete = models.CASCADE
+        on_delete = models.CASCADE,
+        related_name='partner_translations'
     )
 
     language = models.ForeignKey(
         to = TranslationLanguage, 
         on_delete = models.CASCADE,
         related_name='partner_translations'
-    )
-
-    partner = models.ForeignKey(
-        to = Partner, 
-        on_delete = models.CASCADE
     )
 
     partner_name = models.CharField(
