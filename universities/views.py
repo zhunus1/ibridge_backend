@@ -28,10 +28,11 @@ class PartnerViewSet(viewsets.ReadOnlyModelViewSet):
 
     def filter_queryset(self, queryset):
         if self.action == 'list':
-            serializer = PartnerFilterSerializer(data=self.request.query_params)
-            serializer.is_valid(raise_exception=True)
-            queryset = queryset.filter(
-                partner_translations__partner_type__title=serializer.validated_data['partner_type'],
-                country__country_name=serializer.validated_data['country']
-            )
+            if self.request.query_params:
+                serializer = PartnerFilterSerializer(data=self.request.query_params)
+                serializer.is_valid(raise_exception=True)
+                queryset = queryset.filter(
+                    partner_translations__partner_type__title=serializer.validated_data['partner_type'],
+                    country__country_name=serializer.validated_data['country']
+                )
         return super().filter_queryset(queryset)

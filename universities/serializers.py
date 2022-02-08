@@ -76,6 +76,7 @@ class PartnerTranslationDetailSerializer(serializers.ModelSerializer):
             'counters',
             'about_text',
             'faculties',
+            'partner_type',
         )
 
 class PartnerDetailSerializer(serializers.ModelSerializer):
