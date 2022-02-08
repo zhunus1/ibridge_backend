@@ -20,6 +20,9 @@ class AboutImage(models.Model):
         verbose_name = ugettext_lazy("About Image")
         verbose_name_plural = ugettext_lazy("About Images")
         ordering = ('-created',)
+    
+    def __str__(self):
+        return self.pk
 
 class Country(models.Model):
     country_logo = models.ImageField(upload_to ='countries/logo/')
