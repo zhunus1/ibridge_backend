@@ -1,11 +1,11 @@
 from rest_framework import viewsets
 from django.shortcuts import render
 from .models import Partner
-# from .serializers import (
-#     PartnerDetailSerializer,
-#     PartnerListSerializer, 
-#     PartnerFilterSerializer
-# )
+from .serializers import (
+    PartnerDetailSerializer,
+    PartnerListSerializer, 
+    PartnerFilterSerializer
+)
 
 # Create your views here.
 

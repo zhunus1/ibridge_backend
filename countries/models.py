@@ -22,13 +22,15 @@ class AboutImage(models.Model):
         ordering = ('-created',)
 
 class Country(models.Model):
+    country_logo = models.ImageField(upload_to ='countries/logo/')
+
     country_name = models.CharField(
         max_length=255,
     )
 
     banner_image = models.ImageField(upload_to ='countries/banner/')
 
-    about_image = models.ManyToManyField(
+    about_images = models.ManyToManyField(
         to = AboutImage,
         related_name='countries'
     )

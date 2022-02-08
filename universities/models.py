@@ -4,6 +4,12 @@ from django.utils.translation import *
 
 # Create your models here.
 class PartnerType(models.Model):
+    language = models.ForeignKey(
+        to = 'translations.TranslationLanguage', 
+        on_delete = models.CASCADE,
+        related_name='partner_types'
+    )
+
     title = models.CharField(
         max_length=255,
     )
