@@ -15,7 +15,7 @@ class CountryTranslationAdmin(admin.ModelAdmin):
         'updated'
     )
     list_filter = (
-        'language__title',
+        'language',
         'country__country_name',
     )
     search_fields = (
@@ -33,7 +33,7 @@ class PartnerTranslationAdmin(admin.ModelAdmin):
         'updated'
     )
     list_filter = (
-        'language__title',
+        'language',
         'partner__country__country_name',
     )
     search_fields = (

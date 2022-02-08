@@ -3,7 +3,10 @@ from django.utils.translation import *
 
 # Create your models here.
 class AboutImage(models.Model):
-    image = models.ImageField(upload_to ='countries/about/')
+    image = models.ImageField(
+        upload_to ='countries/about/',
+        verbose_name = ugettext_lazy("Image"),
+    )
     
     created = models.DateTimeField(
         verbose_name = ugettext_lazy("Created"),
@@ -22,20 +25,28 @@ class AboutImage(models.Model):
         ordering = ('-created',)
     
     def __str__(self):
-        return self.pk
+        return str(self.pk)
 
 class Country(models.Model):
-    country_logo = models.ImageField(upload_to ='countries/logo/')
+    country_logo = models.ImageField(
+        upload_to ='countries/logo/',
+        verbose_name = ugettext_lazy("Country Logo"),
+    )
 
     country_name = models.CharField(
         max_length=255,
+        verbose_name = ugettext_lazy("Country Name"),
     )
 
-    banner_image = models.ImageField(upload_to ='countries/banner/')
+    banner_image = models.ImageField(
+        upload_to ='countries/banner/',
+        verbose_name = ugettext_lazy("Banner Image"),
+    )
 
     about_images = models.ManyToManyField(
         to = AboutImage,
-        related_name='countries'
+        related_name='countries',
+        verbose_name = ugettext_lazy("About Images"),
     )
 
     created = models.DateTimeField(
@@ -55,4 +66,4 @@ class Country(models.Model):
         ordering = ('-created',)
 
     def __str__(self):
-        return self.country_name
+        return str(self.country_name)

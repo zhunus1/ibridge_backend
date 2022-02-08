@@ -7,11 +7,13 @@ class PartnerType(models.Model):
     language = models.ForeignKey(
         to = 'translations.TranslationLanguage', 
         on_delete = models.CASCADE,
-        related_name='partner_types'
+        related_name='partner_types',
+        verbose_name = ugettext_lazy("Language"),
     )
 
     title = models.CharField(
         max_length=255,
+        verbose_name = ugettext_lazy("Title"),
     )
 
     created = models.DateTimeField(
@@ -36,10 +38,12 @@ class PartnerType(models.Model):
 class Counter(models.Model):
     counter_value = models.CharField(
         max_length=255,
+        verbose_name = ugettext_lazy("Counter Value"),
     )
 
     counter_text = models.TextField(
         blank=True,
+        verbose_name = ugettext_lazy("Counter Text"),
     )
 
     created = models.DateTimeField(
@@ -64,6 +68,7 @@ class Counter(models.Model):
 class Faculty(models.Model):
     text = models.CharField(
         max_length=255,
+        verbose_name = ugettext_lazy("Text"),
     )
 
     created = models.DateTimeField(
@@ -89,17 +94,22 @@ class Partner(models.Model):
 
     partner_name = models.CharField(
         max_length=255,
+        verbose_name = ugettext_lazy("Partner Name"),
     )
 
     country = models.ForeignKey(
         to=Country, 
         on_delete=models.CASCADE,
-        related_name='partners'
+        related_name='partners',
+        verbose_name = ugettext_lazy("Country"),
     )
 
-    partner_image = models.ImageField(upload_to ='universities/image/')
+    partner_image = models.ImageField(
+        upload_to ='universities/image/',
+        verbose_name = ugettext_lazy("Partner Image"),
+    )
 
-    about_video_url = models.URLField()
+    about_video_url = models.URLField(verbose_name = ugettext_lazy("About Video URL"),)
 
     created = models.DateTimeField(
         verbose_name = ugettext_lazy("Created"),

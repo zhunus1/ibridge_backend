@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 09:20+0600\n"
+"POT-Creation-Date: 2022-02-08 18:34+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,54 +18,262 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\app\models.py:11 .\app\models.py:36 .\app\models.py:61 .\app\models.py:92
+#: .\app\models.py:9
+msgid "Logo"
+msgstr "Logo"
+
+#: .\app\models.py:13
+msgid "Name"
+msgstr "Name"
+
+#: .\app\models.py:16 .\app\models.py:53 .\countries\models.py:12
+#: .\countries\models.py:53 .\translations\models.py:19
+#: .\translations\models.py:93 .\translations\models.py:172
+#: .\universities\models.py:20 .\universities\models.py:50
+#: .\universities\models.py:75 .\universities\models.py:115
 msgid "Created"
 msgstr "Created"
 
-#: .\app\models.py:16 .\app\models.py:41 .\app\models.py:66 .\app\models.py:97
+#: .\app\models.py:21 .\app\models.py:58 .\countries\models.py:17
+#: .\countries\models.py:58 .\translations\models.py:24
+#: .\translations\models.py:98 .\translations\models.py:177
+#: .\universities\models.py:25 .\universities\models.py:55
+#: .\universities\models.py:80 .\universities\models.py:120
 msgid "Updated"
 msgstr "Updated"
 
-#: .\app\models.py:22
+#: .\app\models.py:27
 msgid "Partner Logo"
 msgstr "Partner Logo"
 
-#: .\app\models.py:23
+#: .\app\models.py:28
 msgid "Partners Logo"
 msgstr "Partners Logo"
 
-#: .\app\models.py:47
-msgid "Counter"
-msgstr "Counter"
+#: .\app\models.py:38
+msgid "First Name"
+msgstr "First Name"
 
-#: .\app\models.py:48
-msgid "Counters"
-msgstr "Counters"
+#: .\app\models.py:42
+msgid "Last Name"
+msgstr "Last Name"
 
-#: .\app\models.py:72
-msgid "Study place"
-msgstr "Study place"
+#: .\app\models.py:46
+msgid "Phone Number"
+msgstr "Phone Number"
 
-#: .\app\models.py:73
-msgid "Study places"
-msgstr "Study places"
+#: .\app\models.py:64
+msgid "Client Form"
+msgstr "Client Form"
 
-#: .\app\models.py:85
+#: .\app\models.py:65
+msgid "Client Forms"
+msgstr "Client Forms"
+
+#: .\countries\models.py:8
+msgid "Image"
+msgstr "Image"
+
+#: .\countries\models.py:23
+msgid "About Image"
+msgstr "About Image"
+
+#: .\countries\models.py:24 .\countries\models.py:49
+msgid "About Images"
+msgstr "About Images"
+
+#: .\countries\models.py:33
+#, fuzzy
+#| msgid "Country"
+msgid "Country Logo"
+msgstr "Country"
+
+#: .\countries\models.py:38 .\translations\models.py:54
+#, fuzzy
+#| msgid "Country"
+msgid "Country Name"
+msgstr "Country"
+
+#: .\countries\models.py:43
+msgid "Banner Image"
+msgstr "Banner Image"
+
+#: .\countries\models.py:64 .\translations\models.py:49
+#: .\universities\models.py:104
 msgid "Country"
 msgstr "Country"
 
-#: .\app\models.py:103
-msgid "University"
-msgstr "University"
+#: .\countries\models.py:65
+#, fuzzy
+#| msgid "Counters"
+msgid "Countries"
+msgstr "Counters"
 
-#: .\app\models.py:104
-msgid "Universities"
-msgstr "Universities"
-
-#: .\ibridge_backend\settings.py:113
+#: .\ibridge_backend\settings\base.py:130
 msgid "Russian"
 msgstr "Russian"
 
-#: .\ibridge_backend\settings.py:114
+#: .\ibridge_backend\settings\base.py:131
 msgid "English"
 msgstr "English"
+
+#: .\ibridge_backend\urls.py:24
+msgid "ex3qfyp0n-admin/"
+msgstr "ex3qfyp0n-admin/"
+
+#: .\translations\models.py:15 .\universities\models.py:16
+msgid "Title"
+msgstr "Title"
+
+#: .\translations\models.py:30
+msgid "Translation Language"
+msgstr "Translation Language"
+
+#: .\translations\models.py:31
+msgid "Translation Languages"
+msgstr "Translation Languages"
+
+#: .\translations\models.py:42 .\translations\models.py:117
+#: .\universities\models.py:11
+msgid "Language"
+msgstr "Language"
+
+#: .\translations\models.py:59
+msgid "Banner Title"
+msgstr "Banner Title"
+
+#: .\translations\models.py:64
+msgid "Banner Subtitle"
+msgstr "Banner Subtitle"
+
+#: .\translations\models.py:69 .\translations\models.py:156
+msgid "About Text"
+msgstr "About Text"
+
+#: .\translations\models.py:74
+msgid "Advantage 1"
+msgstr "Advantage 1"
+
+#: .\translations\models.py:79
+msgid "Advantage 2"
+msgstr "Advantage 2"
+
+#: .\translations\models.py:84
+msgid "Advantage 3"
+msgstr "Advantage 3"
+
+#: .\translations\models.py:89
+msgid "Advantage 4"
+msgstr "Advantage 4"
+
+#: .\translations\models.py:104
+msgid "Country Translation"
+msgstr "Country Translation"
+
+#: .\translations\models.py:105
+msgid "Country Translations"
+msgstr "Country Translations"
+
+#: .\translations\models.py:124 .\universities\models.py:31
+#, fuzzy
+#| msgid "Partner Logo"
+msgid "Partner Type"
+msgstr "Partner Logo"
+
+#: .\translations\models.py:131 .\universities\models.py:126
+#, fuzzy
+#| msgid "Partner Logo"
+msgid "Partner"
+msgstr "Partner Logo"
+
+#: .\translations\models.py:136 .\universities\models.py:97
+#, fuzzy
+#| msgid "Partner Logo"
+msgid "Partner Name"
+msgstr "Partner Logo"
+
+#: .\translations\models.py:141
+msgid "Foundation Year"
+msgstr "Foundation Year"
+
+#: .\translations\models.py:146
+msgid "Location"
+msgstr "Location"
+
+#: .\translations\models.py:151
+msgid "Payment"
+msgstr "Payment"
+
+#: .\translations\models.py:162 .\universities\models.py:87
+msgid "Faculties"
+msgstr "Faculties"
+
+#: .\translations\models.py:168 .\universities\models.py:62
+msgid "Counters"
+msgstr "Counters"
+
+#: .\translations\models.py:183
+msgid "Partner Translation"
+msgstr "Partner Translation"
+
+#: .\translations\models.py:184
+msgid "Partner Translations"
+msgstr "Partner Translations"
+
+#: .\universities\models.py:32
+#, fuzzy
+#| msgid "Partner Logo"
+msgid "Partner Types"
+msgstr "Partner Logo"
+
+#: .\universities\models.py:41
+#, fuzzy
+#| msgid "Counter"
+msgid "Counter Value"
+msgstr "Counter"
+
+#: .\universities\models.py:46
+#, fuzzy
+#| msgid "Counter"
+msgid "Counter Text"
+msgstr "Counter"
+
+#: .\universities\models.py:61
+msgid "Counter"
+msgstr "Counter"
+
+#: .\universities\models.py:71
+msgid "Text"
+msgstr "Text"
+
+#: .\universities\models.py:86
+msgid "Faculty"
+msgstr "Faculty"
+
+#: .\universities\models.py:109
+#, fuzzy
+#| msgid "Partner Logo"
+msgid "Partner Image"
+msgstr "Partner Logo"
+
+#: .\universities\models.py:112
+msgid "About Video URL"
+msgstr "About Video URL"
+
+#: .\universities\models.py:127
+#, fuzzy
+#| msgid "Partners Logo"
+msgid "Partners"
+msgstr "Partners Logo"
+
+#~ msgid "Study place"
+#~ msgstr "Study place"
+
+#~ msgid "Study places"
+#~ msgstr "Study places"
+
+#~ msgid "University"
+#~ msgstr "University"
+
+#~ msgid "Universities"
+#~ msgstr "Universities"

@@ -8,7 +8,6 @@ from .models import (
 # Register your models here.
 admin.site.register(Counter)
 admin.site.register(Faculty)
-admin.site.register(PartnerType)
 
 class PartnerAdmin(admin.ModelAdmin):
     list_display = (
@@ -23,6 +22,19 @@ class PartnerAdmin(admin.ModelAdmin):
     search_fields = (
         "partner_name",
     )
-
-
 admin.site.register(Partner, PartnerAdmin)
+
+class PartnerTypeAdmin(admin.ModelAdmin):
+    list_display = (
+        'title', 
+        'language', 
+        'created', 
+        'updated'
+    )
+    list_filter = (
+        'language',
+    )
+    search_fields = (
+        "title",
+    )
+admin.site.register(PartnerType, PartnerTypeAdmin)

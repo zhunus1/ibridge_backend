@@ -4,7 +4,6 @@ from .models import (
     AboutImage,
 )
 
-admin.site.register(AboutImage)
 
 class CountryAdmin(admin.ModelAdmin):
     list_display = (
@@ -15,5 +14,8 @@ class CountryAdmin(admin.ModelAdmin):
     search_fields = (
         "country_name",
     )
+
+
+admin.site.register(AboutImage)
 
 admin.site.register(Country, CountryAdmin)

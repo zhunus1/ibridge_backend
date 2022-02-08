@@ -4,9 +4,13 @@ from django.utils.translation import *
 # Create your models here.
 
 class PartnerLogo(models.Model):
-    image = models.ImageField(upload_to ='logos/')
+    image = models.ImageField(
+        upload_to ='logos/',
+        verbose_name = ugettext_lazy("Logo"),
+    )
     name = models.CharField(
         max_length=255,
+        verbose_name = ugettext_lazy("Name"),
     )
     created = models.DateTimeField(
         verbose_name = ugettext_lazy("Created"),
@@ -31,12 +35,15 @@ class PartnerLogo(models.Model):
 class Form(models.Model):
     first_name = models.CharField(
         max_length=255,
+        verbose_name = ugettext_lazy("First Name"),
     )
     last_name = models.CharField(
         max_length=255,
+        verbose_name = ugettext_lazy("Last Name"),
     )
     phone_number = models.CharField(
         max_length=255,
+        verbose_name = ugettext_lazy("Phone Number"),
     )
     comments = models.TextField(
         blank=True,
