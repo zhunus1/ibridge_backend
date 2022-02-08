@@ -47,12 +47,22 @@ class CountryTranslationsSearializer(serializers.ModelSerializer):
             'advantage_4',
         )
 
+class CountryTranslationsListSearializer(serializers.ModelSerializer):
+    language = TranslationLanguageSearializer()
+    class Meta:
+        model = CountryTranslation
+        fields = (
+            'language',
+            'country_name',
+        )
+
 class CountryListSerializer(serializers.ModelSerializer):
+    country_translations = CountryTranslationsListSearializer(many=True)
     class Meta:
         model = Country
         fields = (
             'pk',
-            'country_name',
+            'country_translations',
             'country_logo'
         )
 
