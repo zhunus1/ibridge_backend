@@ -4,10 +4,10 @@ from .models import (
     Faculty,
     Partner,
     PartnerType,
+    Program,
 )
 # Register your models here.
 admin.site.register(Counter)
-admin.site.register(Faculty)
 
 class PartnerAdmin(admin.ModelAdmin):
     list_display = (
@@ -38,3 +38,32 @@ class PartnerTypeAdmin(admin.ModelAdmin):
         "title",
     )
 admin.site.register(PartnerType, PartnerTypeAdmin)
+
+class FacultyAdmin(admin.ModelAdmin):
+    list_display = (
+        'text', 
+        'created', 
+        'updated'
+    )
+    list_filter = (
+        'language',
+    )
+    search_fields = (
+        "text",
+    )
+
+admin.site.register(Faculty, FacultyAdmin)
+
+class ProgramAdmin(admin.ModelAdmin):
+    list_display = (
+        'title', 
+        'created', 
+        'updated'
+    )
+    list_filter = (
+        'language',
+    )
+    search_fields = (
+        "title",
+    )
+admin.site.register(Program, ProgramAdmin)

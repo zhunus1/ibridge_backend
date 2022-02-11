@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import (
     PartnerLogo,
     Form,
+    SeoText
 )
 
 class LogoSerializer(serializers.ModelSerializer):
@@ -36,4 +37,11 @@ class CalculatorFormSerializer(serializers.ModelSerializer):
             'last_name',
             'phone_number',
             'comments',
+        )
+
+class SeoTexterializer(serializers.ModelSerializer):
+    class Meta:
+        model = SeoText
+        fields = (
+            'text',
         )

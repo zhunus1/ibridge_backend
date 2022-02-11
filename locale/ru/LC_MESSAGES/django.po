@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 18:34+0600\n"
+"POT-Creation-Date: 2022-02-10 14:42+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,17 +30,19 @@ msgstr "Название"
 
 #: .\app\models.py:16 .\app\models.py:53 .\countries\models.py:12
 #: .\countries\models.py:53 .\translations\models.py:19
-#: .\translations\models.py:93 .\translations\models.py:172
+#: .\translations\models.py:95 .\translations\models.py:174
 #: .\universities\models.py:20 .\universities\models.py:50
-#: .\universities\models.py:75 .\universities\models.py:115
+#: .\universities\models.py:82 .\universities\models.py:114
+#: .\universities\models.py:159
 msgid "Created"
 msgstr "Создано"
 
 #: .\app\models.py:21 .\app\models.py:58 .\countries\models.py:17
 #: .\countries\models.py:58 .\translations\models.py:24
-#: .\translations\models.py:98 .\translations\models.py:177
+#: .\translations\models.py:100 .\translations\models.py:179
 #: .\universities\models.py:25 .\universities\models.py:55
-#: .\universities\models.py:80 .\universities\models.py:120
+#: .\universities\models.py:87 .\universities\models.py:119
+#: .\universities\models.py:164
 msgid "Updated"
 msgstr "Обновлено"
 
@@ -62,54 +64,48 @@ msgstr "Фамилия"
 
 #: .\app\models.py:46
 msgid "Phone Number"
-msgstr "Номер телефона"
+msgstr "Телефон"
 
 #: .\app\models.py:64
 msgid "Client Form"
-msgstr "Форма клиента"
+msgstr "Форма"
 
 #: .\app\models.py:65
 msgid "Client Forms"
-msgstr "Формы клиентов"
+msgstr "Формы"
 
 #: .\countries\models.py:8
 msgid "Image"
 msgstr "Изображение"
 
-#: .\countries\models.py:23
-msgid "About Image"
-msgstr "Изображение раздела 'О стране'"
+#: .\countries\models.py:23 .\universities\models.py:155
+msgid "About image"
+msgstr "Изображение"
 
 #: .\countries\models.py:24 .\countries\models.py:49
-msgid "About Images"
-msgstr "Изображения раздела 'О стране'"
+msgid "About images"
+msgstr "Изображения"
 
 #: .\countries\models.py:33
-#, fuzzy
-#| msgid "Country"
-msgid "Country Logo"
-msgstr "Страна"
+msgid "Country logo"
+msgstr "Лого страны"
 
-#: .\countries\models.py:38 .\translations\models.py:54
-#, fuzzy
-#| msgid "Country"
-msgid "Country Name"
-msgstr "Страна"
+#: .\countries\models.py:38 .\translations\models.py:56
+msgid "Country name"
+msgstr "Название"
 
 #: .\countries\models.py:43
-msgid "Banner Image"
-msgstr "Изображение баннера"
+msgid "Banner image"
+msgstr "Фото баннера"
 
-#: .\countries\models.py:64 .\translations\models.py:49
-#: .\universities\models.py:104
+#: .\countries\models.py:64 .\translations\models.py:51
+#: .\universities\models.py:143
 msgid "Country"
 msgstr "Страна"
 
 #: .\countries\models.py:65
-#, fuzzy
-#| msgid "Counters"
 msgid "Countries"
-msgstr "Счётчики"
+msgstr "Страны"
 
 #: .\ibridge_backend\settings\base.py:130
 msgid "Russian"
@@ -124,158 +120,140 @@ msgid "ex3qfyp0n-admin/"
 msgstr "ex3qfyp0n-admin/"
 
 #: .\translations\models.py:15 .\universities\models.py:16
+#: .\universities\models.py:110
 msgid "Title"
 msgstr "Название"
 
 #: .\translations\models.py:30
-msgid "Translation Language"
+msgid "Translation language"
 msgstr "Язык перевода"
 
 #: .\translations\models.py:31
-msgid "Translation Languages"
+msgid "Translation languages"
 msgstr "Языки перевода"
 
-#: .\translations\models.py:42 .\translations\models.py:117
-#: .\universities\models.py:11
+#: .\translations\models.py:42 .\translations\models.py:119
+#: .\universities\models.py:11 .\universities\models.py:73
+#: .\universities\models.py:105
 msgid "Language"
 msgstr "Язык"
 
-#: .\translations\models.py:59
-msgid "Banner Title"
-msgstr "Заголовок баннера"
+#: .\translations\models.py:61
+msgid "Banner title"
+msgstr "Заголовок"
 
-#: .\translations\models.py:64
-msgid "Banner Subtitle"
-msgstr "Подзаголовок баннера"
+#: .\translations\models.py:66
+msgid "Banner subtitle"
+msgstr "Подзаголовок"
 
-#: .\translations\models.py:69 .\translations\models.py:156
-msgid "About Text"
-msgstr "Текст раздела 'О нас'"
+#: .\translations\models.py:71 .\translations\models.py:158
+msgid "About text"
+msgstr "О нас"
 
-#: .\translations\models.py:74
+#: .\translations\models.py:76
 msgid "Advantage 1"
 msgstr "Преимущество 1"
 
-#: .\translations\models.py:79
+#: .\translations\models.py:81
 msgid "Advantage 2"
 msgstr "Преимущество 2"
 
-#: .\translations\models.py:84
+#: .\translations\models.py:86
 msgid "Advantage 3"
 msgstr "Преимущество 3"
 
-#: .\translations\models.py:89
+#: .\translations\models.py:91
 msgid "Advantage 4"
 msgstr "Преимущество 4"
 
-#: .\translations\models.py:104
-msgid "Country Translation"
+#: .\translations\models.py:106
+msgid "Country translation"
 msgstr "Перевод страны"
 
-#: .\translations\models.py:105
-msgid "Country Translations"
-msgstr "Переводы стран"
+#: .\translations\models.py:107
+msgid "Country translations"
+msgstr "Перевод стран"
 
-#: .\translations\models.py:124 .\universities\models.py:31
-#, fuzzy
-#| msgid "Partner Logo"
-msgid "Partner Type"
-msgstr "Лого партнера"
+#: .\translations\models.py:126 .\universities\models.py:31
+msgid "Partner type"
+msgstr "Тип партнера"
 
-#: .\translations\models.py:131 .\universities\models.py:126
-#, fuzzy
-#| msgid "Partner Logo"
+#: .\translations\models.py:133 .\universities\models.py:170
 msgid "Partner"
-msgstr "Лого партнера"
+msgstr "Партнер"
 
-#: .\translations\models.py:136 .\universities\models.py:97
-#, fuzzy
-#| msgid "Partner Logo"
-msgid "Partner Name"
-msgstr "Лого партнера"
+#: .\translations\models.py:138 .\universities\models.py:136
+msgid "Partner name"
+msgstr "Название"
 
-#: .\translations\models.py:141
-msgid "Foundation Year"
+#: .\translations\models.py:143
+msgid "Foundation year"
 msgstr "Год основания"
 
-#: .\translations\models.py:146
+#: .\translations\models.py:148
 msgid "Location"
 msgstr "Расположение"
 
-#: .\translations\models.py:151
+#: .\translations\models.py:153
 msgid "Payment"
 msgstr "Расходы"
 
-#: .\translations\models.py:162 .\universities\models.py:87
+#: .\translations\models.py:164 .\universities\models.py:94
 msgid "Faculties"
 msgstr "Факультеты"
 
-#: .\translations\models.py:168 .\universities\models.py:62
+#: .\translations\models.py:170 .\universities\models.py:62
 msgid "Counters"
-msgstr "Счётчики"
+msgstr "Счетчики"
 
-#: .\translations\models.py:183
-msgid "Partner Translation"
+#: .\translations\models.py:185
+msgid "Partner translation"
 msgstr "Перевод партнера"
 
-#: .\translations\models.py:184
-msgid "Partner Translations"
-msgstr "Переводы партнеров"
+#: .\translations\models.py:186
+msgid "Partner translations"
+msgstr "Переводы партнера"
 
 #: .\universities\models.py:32
-#, fuzzy
-#| msgid "Partner Logo"
-msgid "Partner Types"
-msgstr "Лого партнера"
+msgid "Partner types"
+msgstr "Тип партнера"
 
 #: .\universities\models.py:41
-#, fuzzy
-#| msgid "Counter"
-msgid "Counter Value"
-msgstr "Счётчик"
+msgid "Counter value"
+msgstr "Значение"
 
 #: .\universities\models.py:46
-#, fuzzy
-#| msgid "Counter"
-msgid "Counter Text"
-msgstr "Счётчик"
+msgid "Counter text"
+msgstr "Текст"
 
 #: .\universities\models.py:61
 msgid "Counter"
-msgstr "Счётчик"
+msgstr "Счетчик"
 
-#: .\universities\models.py:71
+#: .\universities\models.py:78
 msgid "Text"
 msgstr "Текст"
 
-#: .\universities\models.py:86
+#: .\universities\models.py:93
 msgid "Faculty"
 msgstr "Факультет"
 
-#: .\universities\models.py:109
-#, fuzzy
-#| msgid "Partner Logo"
-msgid "Partner Image"
-msgstr "Лого партнера"
+#: .\universities\models.py:125
+msgid "Program"
+msgstr "Программа"
 
-#: .\universities\models.py:112
-msgid "About Video URL"
-msgstr "Ссылка на видео в разделе 'О нас'"
+#: .\universities\models.py:126
+msgid "Programs"
+msgstr "Программы"
 
-#: .\universities\models.py:127
-#, fuzzy
-#| msgid "Partners Logo"
+#: .\universities\models.py:148
+msgid "Partner image"
+msgstr "Фото баннера"
+
+#: .\universities\models.py:151
+msgid "About video URL"
+msgstr "Ссылка на видео"
+
+#: .\universities\models.py:171
 msgid "Partners"
-msgstr "Лого партнеров"
-
-#~ msgid "Study place"
-#~ msgstr "Место обучения"
-
-#~ msgid "Study places"
-#~ msgstr "Места обучения"
-
-#~ msgid "University"
-#~ msgstr "Университет"
-
-#~ msgid "Universities"
-#~ msgstr "Университеты"
+msgstr "Партнеры"

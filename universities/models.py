@@ -28,8 +28,8 @@ class PartnerType(models.Model):
 
     class Meta:
 
-        verbose_name = ugettext_lazy("Partner Type")
-        verbose_name_plural = ugettext_lazy("Partner Types")
+        verbose_name = ugettext_lazy("Partner type")
+        verbose_name_plural = ugettext_lazy("Partner types")
         ordering = ('-created',)
         
     def __str__(self):
@@ -38,12 +38,12 @@ class PartnerType(models.Model):
 class Counter(models.Model):
     counter_value = models.CharField(
         max_length=255,
-        verbose_name = ugettext_lazy("Counter Value"),
+        verbose_name = ugettext_lazy("Counter value"),
     )
 
     counter_text = models.TextField(
         blank=True,
-        verbose_name = ugettext_lazy("Counter Text"),
+        verbose_name = ugettext_lazy("Counter text"),
     )
 
     created = models.DateTimeField(
@@ -66,6 +66,13 @@ class Counter(models.Model):
         return '%s - %s' % (self.counter_value, self.counter_text)
 
 class Faculty(models.Model):
+    language = models.ForeignKey(
+        to = 'translations.TranslationLanguage', 
+        on_delete = models.CASCADE,
+        related_name='faculties',
+        verbose_name = ugettext_lazy("Language"),
+    )
+
     text = models.CharField(
         max_length=255,
         verbose_name = ugettext_lazy("Text"),
@@ -90,11 +97,43 @@ class Faculty(models.Model):
     def __str__(self):
         return self.text
 
+class Program(models.Model):
+    language = models.ForeignKey(
+        to = 'translations.TranslationLanguage', 
+        on_delete = models.CASCADE,
+        related_name='programs',
+        verbose_name = ugettext_lazy("Language"),
+    )
+
+    title = models.CharField(
+        max_length=255,
+        verbose_name = ugettext_lazy("Title"),
+    )
+
+    created = models.DateTimeField(
+        verbose_name = ugettext_lazy("Created"),
+        auto_now_add = True,
+    )
+
+    updated = models.DateTimeField(
+        verbose_name = ugettext_lazy("Updated"),
+        auto_now = True,
+    )
+
+    class Meta:
+
+        verbose_name = ugettext_lazy("Program")
+        verbose_name_plural = ugettext_lazy("Programs")
+        ordering = ('-created',)
+
+    def __str__(self):
+        return self.title
+
 class Partner(models.Model):
 
     partner_name = models.CharField(
         max_length=255,
-        verbose_name = ugettext_lazy("Partner Name"),
+        verbose_name = ugettext_lazy("Partner name"),
     )
 
     country = models.ForeignKey(
@@ -105,11 +144,16 @@ class Partner(models.Model):
     )
 
     partner_image = models.ImageField(
-        upload_to ='universities/image/',
-        verbose_name = ugettext_lazy("Partner Image"),
+        upload_to ='universities/partners/image',
+        verbose_name = ugettext_lazy("Partner image"),
     )
 
-    about_video_url = models.URLField(verbose_name = ugettext_lazy("About Video URL"),)
+    about_video_url = models.URLField(verbose_name = ugettext_lazy("About video URL"),)
+
+    about_image = models.ImageField(
+        upload_to ='universities/partners/about/',
+        verbose_name = ugettext_lazy("About image"),
+    )
 
     created = models.DateTimeField(
         verbose_name = ugettext_lazy("Created"),

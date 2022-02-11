@@ -48,9 +48,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'app',
+    'translations',
     'countries',
     'universities',
-    'translations',
 ]
 
 MIDDLEWARE = [

@@ -67,3 +67,27 @@ class Form(models.Model):
 
     def __str__(self):
         return self.phone_number
+
+
+class SeoText(models.Model):
+    text = models.TextField(
+        blank=True,
+        verbose_name = ugettext_lazy("Text"),
+    )
+
+
+    created = models.DateTimeField(
+        verbose_name = ugettext_lazy("Created"),
+        auto_now_add = True,
+    )
+
+    updated = models.DateTimeField(
+        verbose_name = ugettext_lazy("Updated"),
+        auto_now = True,
+    )
+
+    class Meta:
+
+        verbose_name = ugettext_lazy("SEO text")
+        verbose_name_plural = ugettext_lazy("SEO texts")
+        ordering = ('-created',)

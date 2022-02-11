@@ -27,8 +27,8 @@ class TranslationLanguage(models.Model):
 
     class Meta:
 
-        verbose_name = ugettext_lazy("Translation Language")
-        verbose_name_plural = ugettext_lazy("Translation Languages")
+        verbose_name = ugettext_lazy("Translation language")
+        verbose_name_plural = ugettext_lazy("Translation languages")
         ordering = ('-created',)
     
     def __str__(self):
@@ -42,6 +42,8 @@ class CountryTranslation(models.Model):
         verbose_name = ugettext_lazy("Language"),
     )
 
+    slug = models.SlugField(max_length=40)
+
     country = models.ForeignKey(
         to = Country, 
         on_delete = models.CASCADE,
@@ -51,22 +53,22 @@ class CountryTranslation(models.Model):
 
     country_name = models.CharField(
         max_length=255,
-        verbose_name = ugettext_lazy("Country Name"),
+        verbose_name = ugettext_lazy("Country name"),
     )
 
     banner_title = models.CharField(
         max_length=255,
-        verbose_name = ugettext_lazy("Banner Title"),
+        verbose_name = ugettext_lazy("Banner title"),
     )
 
     banner_sub_title = models.TextField(
         blank=True,
-        verbose_name = ugettext_lazy("Banner Subtitle"),
+        verbose_name = ugettext_lazy("Banner subtitle"),
     )
 
     about_text = models.TextField(
         blank=True,
-        verbose_name = ugettext_lazy("About Text"),
+        verbose_name = ugettext_lazy("About text"),
     )
 
     advantage_1 = models.TextField(
@@ -101,15 +103,15 @@ class CountryTranslation(models.Model):
 
     class Meta:
 
-        verbose_name = ugettext_lazy("Country Translation")
-        verbose_name_plural = ugettext_lazy("Country Translations")
+        verbose_name = ugettext_lazy("Country translation")
+        verbose_name_plural = ugettext_lazy("Country translations")
         ordering = ('-created',)
 
     def __str__(self):
         return self.country_name
 
 class PartnerTranslation(models.Model):
-
+    
     language = models.ForeignKey(
         to = TranslationLanguage, 
         on_delete = models.CASCADE,
@@ -121,7 +123,7 @@ class PartnerTranslation(models.Model):
         to=PartnerType, 
         on_delete=models.CASCADE,
         related_name='partner_translations',
-        verbose_name = ugettext_lazy("Partner Type"),
+        verbose_name = ugettext_lazy("Partner type"),
     )
 
     partner = models.ForeignKey(
@@ -133,12 +135,12 @@ class PartnerTranslation(models.Model):
 
     partner_name = models.CharField(
         max_length=255,
-        verbose_name = ugettext_lazy("Partner Name"),
+        verbose_name = ugettext_lazy("Partner name"),
     )
 
     foundation_year = models.CharField(
         max_length=255,
-        verbose_name = ugettext_lazy("Foundation Year"),
+        verbose_name = ugettext_lazy("Foundation year"),
     )
 
     location = models.CharField(
@@ -153,7 +155,7 @@ class PartnerTranslation(models.Model):
 
     about_text = models.TextField(
         blank=True,
-        verbose_name = ugettext_lazy("About Text"),
+        verbose_name = ugettext_lazy("About text"),
     )
 
     faculties = models.ManyToManyField(
@@ -180,8 +182,8 @@ class PartnerTranslation(models.Model):
 
     class Meta:
 
-        verbose_name = ugettext_lazy("Partner Translation")
-        verbose_name_plural = ugettext_lazy("Partner Translations")
+        verbose_name = ugettext_lazy("Partner translation")
+        verbose_name_plural = ugettext_lazy("Partner translations")
         ordering = ('-created',)
 
     def __str__(self):

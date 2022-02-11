@@ -20,8 +20,8 @@ class AboutImage(models.Model):
 
     class Meta:
 
-        verbose_name = ugettext_lazy("About Image")
-        verbose_name_plural = ugettext_lazy("About Images")
+        verbose_name = ugettext_lazy("About image")
+        verbose_name_plural = ugettext_lazy("About images")
         ordering = ('-created',)
     
     def __str__(self):
@@ -30,23 +30,23 @@ class AboutImage(models.Model):
 class Country(models.Model):
     country_logo = models.ImageField(
         upload_to ='countries/logo/',
-        verbose_name = ugettext_lazy("Country Logo"),
+        verbose_name = ugettext_lazy("Country logo"),
     )
 
     country_name = models.CharField(
         max_length=255,
-        verbose_name = ugettext_lazy("Country Name"),
+        verbose_name = ugettext_lazy("Country name"),
     )
 
     banner_image = models.ImageField(
         upload_to ='countries/banner/',
-        verbose_name = ugettext_lazy("Banner Image"),
+        verbose_name = ugettext_lazy("Banner image"),
     )
 
     about_images = models.ManyToManyField(
         to = AboutImage,
         related_name='countries',
-        verbose_name = ugettext_lazy("About Images"),
+        verbose_name = ugettext_lazy("About images"),
     )
 
     created = models.DateTimeField(
