@@ -49,6 +49,12 @@ class Country(models.Model):
         verbose_name = ugettext_lazy("About images"),
     )
 
+    seo_text = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name = ugettext_lazy("Counter SEO text"),
+    )
+
     created = models.DateTimeField(
         verbose_name = ugettext_lazy("Created"),
         auto_now_add = True,

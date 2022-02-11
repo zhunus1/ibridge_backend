@@ -73,6 +73,7 @@ class CountryDetailSerializer(serializers.ModelSerializer):
         model = Country
         fields = (
             'pk',
+            'seo_text',
             'about_images',
             'banner_image',
             'country_translations',

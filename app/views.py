@@ -10,13 +10,11 @@ from django.conf import settings
 from .models import (
     PartnerLogo,
     Form,
-    SeoText
 )
 from .serializers import (
     LogoSerializer,
     FormSerializer,
     CalculatorFormSerializer,
-    SeoTexterializer
 )
 
 
@@ -26,13 +24,6 @@ class LogoListView(APIView):
     def get(self, request, format=None):
         logos = PartnerLogo.objects.all()
         serializer = LogoSerializer(logos, context={"request": request}, many=True)
-        return Response(serializer.data)
-
-class SeoTextListView(APIView):
-
-    def get(self, request, format=None):
-        texts = SeoText.objects.all()
-        serializer = SeoTexterializer(texts, many=True)
         return Response(serializer.data)
 
 class FormView(APIView):
