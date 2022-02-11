@@ -52,7 +52,7 @@ class Country(models.Model):
     seo_text = models.TextField(
         blank=True,
         null=True,
-        verbose_name = ugettext_lazy("Counter SEO text"),
+        verbose_name = ugettext_lazy("SEO text"),
     )
 
     created = models.DateTimeField(
