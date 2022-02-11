@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-10 14:42+0600\n"
+"POT-Creation-Date: 2022-02-11 16:08+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,8 +29,8 @@ msgid "Name"
 msgstr "Название"
 
 #: .\app\models.py:16 .\app\models.py:53 .\countries\models.py:12
-#: .\countries\models.py:53 .\translations\models.py:19
-#: .\translations\models.py:95 .\translations\models.py:174
+#: .\countries\models.py:59 .\translations\models.py:20
+#: .\translations\models.py:96 .\translations\models.py:181
 #: .\universities\models.py:20 .\universities\models.py:50
 #: .\universities\models.py:82 .\universities\models.py:114
 #: .\universities\models.py:159
@@ -38,8 +38,8 @@ msgid "Created"
 msgstr "Создано"
 
 #: .\app\models.py:21 .\app\models.py:58 .\countries\models.py:17
-#: .\countries\models.py:58 .\translations\models.py:24
-#: .\translations\models.py:100 .\translations\models.py:179
+#: .\countries\models.py:64 .\translations\models.py:25
+#: .\translations\models.py:101 .\translations\models.py:186
 #: .\universities\models.py:25 .\universities\models.py:55
 #: .\universities\models.py:87 .\universities\models.py:119
 #: .\universities\models.py:164
@@ -74,6 +74,12 @@ msgstr "Форма"
 msgid "Client Forms"
 msgstr "Формы"
 
+#: .\countries\apps.py:7
+#, fuzzy
+#| msgid "Countries"
+msgid "countries"
+msgstr "Страны"
+
 #: .\countries\models.py:8
 msgid "Image"
 msgstr "Изображение"
@@ -90,7 +96,7 @@ msgstr "Изображения"
 msgid "Country logo"
 msgstr "Лого страны"
 
-#: .\countries\models.py:38 .\translations\models.py:56
+#: .\countries\models.py:38 .\translations\models.py:57
 msgid "Country name"
 msgstr "Название"
 
@@ -98,12 +104,18 @@ msgstr "Название"
 msgid "Banner image"
 msgstr "Фото баннера"
 
-#: .\countries\models.py:64 .\translations\models.py:51
+#: .\countries\models.py:55
+#, fuzzy
+#| msgid "Counter text"
+msgid "Counter SEO text"
+msgstr "Текст"
+
+#: .\countries\models.py:70 .\translations\models.py:52
 #: .\universities\models.py:143
 msgid "Country"
 msgstr "Страна"
 
-#: .\countries\models.py:65
+#: .\countries\models.py:71
 msgid "Countries"
 msgstr "Страны"
 
@@ -119,100 +131,114 @@ msgstr "Английский"
 msgid "ex3qfyp0n-admin/"
 msgstr "ex3qfyp0n-admin/"
 
-#: .\translations\models.py:15 .\universities\models.py:16
+#: .\translations\apps.py:8
+#, fuzzy
+#| msgid "Country translations"
+msgid "translations"
+msgstr "Перевод стран"
+
+#: .\translations\models.py:16 .\universities\models.py:16
 #: .\universities\models.py:110
 msgid "Title"
 msgstr "Название"
 
-#: .\translations\models.py:30
+#: .\translations\models.py:31
 msgid "Translation language"
 msgstr "Язык перевода"
 
-#: .\translations\models.py:31
+#: .\translations\models.py:32
 msgid "Translation languages"
 msgstr "Языки перевода"
 
-#: .\translations\models.py:42 .\translations\models.py:119
+#: .\translations\models.py:43 .\translations\models.py:120
 #: .\universities\models.py:11 .\universities\models.py:73
 #: .\universities\models.py:105
 msgid "Language"
 msgstr "Язык"
 
-#: .\translations\models.py:61
+#: .\translations\models.py:62
 msgid "Banner title"
 msgstr "Заголовок"
 
-#: .\translations\models.py:66
+#: .\translations\models.py:67
 msgid "Banner subtitle"
 msgstr "Подзаголовок"
 
-#: .\translations\models.py:71 .\translations\models.py:158
+#: .\translations\models.py:72 .\translations\models.py:159
 msgid "About text"
 msgstr "О нас"
 
-#: .\translations\models.py:76
+#: .\translations\models.py:77
 msgid "Advantage 1"
 msgstr "Преимущество 1"
 
-#: .\translations\models.py:81
+#: .\translations\models.py:82
 msgid "Advantage 2"
 msgstr "Преимущество 2"
 
-#: .\translations\models.py:86
+#: .\translations\models.py:87
 msgid "Advantage 3"
 msgstr "Преимущество 3"
 
-#: .\translations\models.py:91
+#: .\translations\models.py:92
 msgid "Advantage 4"
 msgstr "Преимущество 4"
 
-#: .\translations\models.py:106
+#: .\translations\models.py:107
 msgid "Country translation"
 msgstr "Перевод страны"
 
-#: .\translations\models.py:107
+#: .\translations\models.py:108
 msgid "Country translations"
 msgstr "Перевод стран"
 
-#: .\translations\models.py:126 .\universities\models.py:31
+#: .\translations\models.py:127 .\universities\models.py:31
 msgid "Partner type"
 msgstr "Тип партнера"
 
-#: .\translations\models.py:133 .\universities\models.py:170
+#: .\translations\models.py:134 .\universities\models.py:170
 msgid "Partner"
 msgstr "Партнер"
 
-#: .\translations\models.py:138 .\universities\models.py:136
+#: .\translations\models.py:139 .\universities\models.py:136
 msgid "Partner name"
 msgstr "Название"
 
-#: .\translations\models.py:143
+#: .\translations\models.py:144
 msgid "Foundation year"
 msgstr "Год основания"
 
-#: .\translations\models.py:148
+#: .\translations\models.py:149
 msgid "Location"
 msgstr "Расположение"
 
-#: .\translations\models.py:153
+#: .\translations\models.py:154
 msgid "Payment"
 msgstr "Расходы"
 
-#: .\translations\models.py:164 .\universities\models.py:94
+#: .\translations\models.py:165 .\universities\models.py:94
 msgid "Faculties"
 msgstr "Факультеты"
 
-#: .\translations\models.py:170 .\universities\models.py:62
+#: .\translations\models.py:171 .\universities\models.py:62
 msgid "Counters"
 msgstr "Счетчики"
 
-#: .\translations\models.py:185
+#: .\translations\models.py:177 .\universities\models.py:126
+msgid "Programs"
+msgstr "Программы"
+
+#: .\translations\models.py:192
 msgid "Partner translation"
 msgstr "Перевод партнера"
 
-#: .\translations\models.py:186
+#: .\translations\models.py:193
 msgid "Partner translations"
 msgstr "Переводы партнера"
+
+#: .\universities\apps.py:8
+msgid "universities"
+msgstr "Партнеры"
 
 #: .\universities\models.py:32
 msgid "Partner types"
@@ -241,10 +267,6 @@ msgstr "Факультет"
 #: .\universities\models.py:125
 msgid "Program"
 msgstr "Программа"
-
-#: .\universities\models.py:126
-msgid "Programs"
-msgstr "Программы"
 
 #: .\universities\models.py:148
 msgid "Partner image"

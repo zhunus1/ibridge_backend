@@ -3,7 +3,8 @@ from universities.models import (
     Partner,
     Faculty,
     Counter,
-    PartnerType
+    PartnerType,
+    Program
 )
 from countries.models import Country
 from django.utils.translation import *
@@ -168,6 +169,12 @@ class PartnerTranslation(models.Model):
         to = Counter,
         related_name='partner_translations',
         verbose_name = ugettext_lazy("Counters"),
+    )
+
+    programs = models.ManyToManyField(
+        to = Program,
+        related_name='partner_translations',
+        verbose_name = ugettext_lazy("Programs"),
     )
 
     created = models.DateTimeField(
