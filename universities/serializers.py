@@ -3,7 +3,8 @@ from .models import (
     Partner,
     Counter,
     PartnerType,
-    Faculty
+    Faculty,
+    Program,
 )
 
 from translations.models import PartnerTranslation
@@ -12,6 +13,13 @@ from countries.serializers import TranslationLanguageSearializer
 #Detailed partner by pk
 
 #showl all partners with filter type
+
+class ProgramSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Program
+        fields = (
+            'title',
+        )
 
 class CounterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -65,6 +73,7 @@ class PartnerTranslationDetailSerializer(serializers.ModelSerializer):
     faculties = FacultySerializer(many=True)
     partner_type = PartnerTypeSerializer()
     counters = CounterSerializer(many=True)
+    programs = ProgramSerializer(many=True)
     class Meta:
         model = PartnerTranslation
         fields = (
@@ -73,6 +82,7 @@ class PartnerTranslationDetailSerializer(serializers.ModelSerializer):
             'foundation_year',
             'location',
             'payment',
+            'programs',
             'counters',
             'about_text',
             'faculties',
