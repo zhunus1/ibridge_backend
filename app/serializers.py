@@ -26,6 +26,7 @@ class FormSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'phone_number',
+            'source',
         )
 
 class CalculatorFormSerializer(serializers.ModelSerializer):
@@ -35,5 +36,6 @@ class CalculatorFormSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'phone_number',
+            'source',
             'comments',
         )

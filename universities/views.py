@@ -14,7 +14,7 @@ from .filters import PartnerFilter
 
 class PartnerViewSet(viewsets.ReadOnlyModelViewSet):
     filter_backends = (SearchFilter, filters.DjangoFilterBackend)
-    search_fields = ('country__country_name', 'partner_name', 'partner_translations__faculties__text', 'partner_translations__programs__title', 'partner_type__title')
+    search_fields = ('country__country_name', 'partner_name', 'partner_translations__faculties__text', 'partner_translations__programs__title')
     filter_class = PartnerFilter
 
     def get_serializer_class(self):

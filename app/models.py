@@ -45,6 +45,11 @@ class Form(models.Model):
         max_length=255,
         verbose_name = ugettext_lazy("Phone Number"),
     )
+    source = models.CharField(
+        max_length=255,
+        verbose_name = ugettext_lazy("Source"),
+        blank=True,
+    )
     comments = models.TextField(
         blank=True,
     )

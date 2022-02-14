@@ -44,17 +44,19 @@ def save_form(sender, instance, created, **kwargs):
         }
 
         if instance.comments:
-            comments = instance.comments
-            message = "Имя: %s \nФамилия: %s \nНомер телефона: %s \Комментарий: %s" % (instance.first_name, instance.last_name, instance.phone_number, instance.comments)
+            comments = "Комментарии: %s \nИсточник: %s" % (instance.comments, instance.source) 
+            message = "Имя: %s \nФамилия: %s \nНомер телефона: %s \nКомментарий: %s \nИсточник: %s" % (instance.first_name, instance.last_name, instance.phone_number, instance.comments, instance.source)
             params = {
                 'FIELDS[TITLE]': 'Веб-сайт ibridge.kz',
                 'FIELDS[COMMENTS]': comments,
                 'FIELDS[SOURCE_ID]': 'WEB',
             }
         else:
-            message = "Имя: %s \nФамилия: %s \nНомер телефона: %s" % (instance.first_name, instance.last_name, instance.phone_number)
+            comments = "Источник: %s" %  instance.source
+            message = "Имя: %s \nФамилия: %s \nНомер телефона: %s \nИсточник: %s" % (instance.first_name, instance.last_name, instance.phone_number, instance.source)
             params = {
                 'FIELDS[TITLE]': 'Веб-сайт ibridge.kz',
+                'FIELDS[COMMENTS]': comments,
                 'FIELDS[SOURCE_ID]': 'WEB',
             }
         
