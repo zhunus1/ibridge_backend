@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from django.shortcuts import render
 from .models import Partner
+from rest_framework.renderers import JSONRenderer
 from django_filters import rest_framework as filters
 from rest_framework.filters import SearchFilter
 from .serializers import (
@@ -16,6 +17,7 @@ class PartnerViewSet(viewsets.ReadOnlyModelViewSet):
     filter_backends = (SearchFilter, filters.DjangoFilterBackend)
     search_fields = ('country__country_name', 'partner_name', 'partner_translations__faculties__text', 'partner_translations__programs__title')
     filter_class = PartnerFilter
+    renderer_classes = (JSONRenderer,)
 
     def get_serializer_class(self):
         if self.action == 'list':
