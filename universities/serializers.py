@@ -62,13 +62,16 @@ class PartnerTranslationListSerializer(serializers.ModelSerializer):
 
 class PartnerListSerializer(serializers.ModelSerializer):
     partner_translations = PartnerTranslationListSerializer(many=True)
+    country = CountrySlugSerializer()
     class Meta:
         model = Partner
+        lookup_field  = 'partner_slug'
         fields = (
             'pk',
             'partner_slug',
             'partner_name',
             'partner_image',
+            'country',
             'partner_translations',
         )
 
