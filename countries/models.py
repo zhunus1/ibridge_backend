@@ -33,6 +33,13 @@ class Country(models.Model):
         verbose_name = ugettext_lazy("Country logo"),
     )
 
+    country_slug = models.SlugField(
+        max_length=40,
+        help_text=ugettext_lazy("Define the country's URL slug. Only lowercase and _ instead of space."),
+        verbose_name = ugettext_lazy("Country slug"),
+        default='country'
+    )
+
     country_name = models.CharField(
         max_length=255,
         verbose_name = ugettext_lazy("Country name"),

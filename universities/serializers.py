@@ -8,7 +8,10 @@ from .models import (
 )
 
 from translations.models import PartnerTranslation
-from countries.serializers import TranslationLanguageSearializer
+from countries.serializers import (
+    TranslationLanguageSearializer,
+    CountrySlugSerializer
+)
 
 #Detailed partner by pk
 
@@ -63,6 +66,7 @@ class PartnerListSerializer(serializers.ModelSerializer):
         model = Partner
         fields = (
             'pk',
+            'partner_slug',
             'partner_name',
             'partner_image',
             'partner_translations',
@@ -91,10 +95,13 @@ class PartnerTranslationDetailSerializer(serializers.ModelSerializer):
 
 class PartnerDetailSerializer(serializers.ModelSerializer):
     partner_translations = PartnerTranslationDetailSerializer(many=True)
+    country = CountrySlugSerializer()
     class Meta:
         model = Partner
         fields = (
             'pk',
+            'partner_slug',
+            'country',
             'partner_image',
             'about_video_url',
             'partner_translations',

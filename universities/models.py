@@ -136,6 +136,13 @@ class Partner(models.Model):
         verbose_name = ugettext_lazy("Partner name"),
     )
 
+    partner_slug = models.SlugField(
+        max_length=40,
+        help_text=ugettext_lazy("Define the partner's URL slug. Only lowercase and _ instead of space."),
+        verbose_name=ugettext_lazy("Partner slug"),
+        default='partner'
+    )
+
     country = models.ForeignKey(
         to=Country, 
         on_delete=models.CASCADE,

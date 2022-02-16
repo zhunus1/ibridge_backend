@@ -62,6 +62,7 @@ class CountryListSerializer(serializers.ModelSerializer):
         model = Country
         fields = (
             'pk',
+            'country_slug',
             'country_translations',
             'country_logo'
         )
@@ -73,8 +74,17 @@ class CountryDetailSerializer(serializers.ModelSerializer):
         model = Country
         fields = (
             'pk',
+            'country_slug',
             'seo_text',
             'about_images',
             'banner_image',
             'country_translations',
+        )
+
+class CountrySlugSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Country
+        fields = (
+            'pk',
+            'country_slug',
         )
