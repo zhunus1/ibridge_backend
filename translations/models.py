@@ -43,8 +43,6 @@ class CountryTranslation(models.Model):
         verbose_name = ugettext_lazy("Language"),
     )
 
-    slug = models.SlugField(max_length=40)
-
     country = models.ForeignKey(
         to = Country, 
         on_delete = models.CASCADE,
