@@ -18,6 +18,7 @@ class PartnerViewSet(viewsets.ReadOnlyModelViewSet):
     search_fields = ('country__country_name', 'partner_name', 'partner_translations__faculties__text', 'partner_translations__programs__title')
     filter_class = PartnerFilter
     renderer_classes = (JSONRenderer,)
+    lookup_field = 'partner_slug'
 
     def get_serializer_class(self):
         if self.action == 'list':

@@ -92,12 +92,14 @@ class PartnerTranslationDetailSerializer(serializers.ModelSerializer):
             'faculties',
             'partner_type',
         )
+        
 
 class PartnerDetailSerializer(serializers.ModelSerializer):
     partner_translations = PartnerTranslationDetailSerializer(many=True)
     country = CountrySlugSerializer()
     class Meta:
         model = Partner
+        lookup_field = 'partner_slug'
         fields = (
             'pk',
             'partner_slug',

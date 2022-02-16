@@ -13,7 +13,8 @@ from .serializers import (
 class CountryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Country.objects.all()
     renderer_classes = (JSONRenderer,)
-    
+    lookup_field = 'country_slug'
+
     def get_serializer_class(self):
         if self.action == 'list':
             return CountryListSerializer

@@ -72,6 +72,7 @@ class CountryDetailSerializer(serializers.ModelSerializer):
     country_translations = CountryTranslationsSearializer(many=True)
     class Meta:
         model = Country
+        lookup_field = 'country_slug'
         fields = (
             'pk',
             'country_slug',
