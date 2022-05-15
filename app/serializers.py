@@ -27,7 +27,11 @@ class FormSerializer(serializers.ModelSerializer):
             'last_name',
             'phone_number',
             'source',
+            'additional'
         )
+    
+    def create(self, validated_data):
+        return Form.objects.create(**validated_data)
 
 class CalculatorFormSerializer(serializers.ModelSerializer):
     class Meta:
@@ -38,4 +42,7 @@ class CalculatorFormSerializer(serializers.ModelSerializer):
             'phone_number',
             'source',
             'comments',
+            'additional'
         )
+    def create(self, validated_data):
+        return Form.objects.create(**validated_data)

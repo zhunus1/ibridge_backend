@@ -53,6 +53,11 @@ class Form(models.Model):
     comments = models.TextField(
         blank=True,
     )
+    additional = models.JSONField(
+        verbose_name = ugettext_lazy("Additional"),
+        blank=True,
+        null=True,
+    )
 
     created = models.DateTimeField(
         verbose_name = ugettext_lazy("Created"),

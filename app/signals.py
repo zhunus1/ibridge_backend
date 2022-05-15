@@ -60,6 +60,17 @@ def save_form(sender, instance, created, **kwargs):
                 'FIELDS[SOURCE_ID]': 'WEB',
             }
         
+        if instance.additional:
+            additional = {
+                'FIELDS[UTM_SOURCE]': instance.additional['UTM_SOURCE'],
+                'FIELDS[UTM_MEDIUM]': instance.additional['UTM_MEDIUM'],
+                'FIELDS[UTM_CAMPAIGN]': instance.additional['UTM_CAMPAIGN'],
+                'FIELDS[UTM_CONTENT]': instance.additional['UTM_CONTENT'],
+                'FIELDS[UTM_TERM]': instance.additional['UTM_TERM'],
+            }
+
+            params.update(additional)
+        
         async_task('app.signals.send_bitrix', params=params, contact=contact)
         async_task('app.signals.send_telegram', message)
         async_task('app.signals.send_yandex', message)
