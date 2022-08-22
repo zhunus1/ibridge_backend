@@ -68,6 +68,7 @@ class PartnerListSerializer(serializers.ModelSerializer):
         lookup_field  = 'partner_slug'
         fields = (
             'pk',
+            'is_program',
             'partner_slug',
             'partner_name',
             'partner_image',
@@ -105,6 +106,7 @@ class PartnerDetailSerializer(serializers.ModelSerializer):
         lookup_field = 'partner_slug'
         fields = (
             'pk',
+            'is_program',
             'partner_slug',
             'country',
             'partner_image',
