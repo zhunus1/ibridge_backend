@@ -10,5 +10,4 @@ class PartnerFilter(filters.FilterSet):
         fields = (
             'title',
             'country_name'
-            'is_program',
         )
