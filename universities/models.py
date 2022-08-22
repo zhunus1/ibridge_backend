@@ -131,6 +131,8 @@ class Program(models.Model):
 
 class Partner(models.Model):
 
+    is_program = models.BooleanField(default=False)
+
     partner_name = models.CharField(
         max_length=255,
         verbose_name = ugettext_lazy("Partner name"),
