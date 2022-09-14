@@ -5,7 +5,7 @@ from django.db.models import Q
 
 class PartnerFilter(filters.FilterSet):
     title = filters.CharFilter(field_name='partner_translations__partner_type__title')
-    country_name = filters.CharFilter(method='my_custom_filter')
+    country = filters.CharFilter(method='my_custom_filter')
 
     class Meta:
         model = Partner
