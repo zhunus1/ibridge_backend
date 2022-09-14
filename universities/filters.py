@@ -1,6 +1,7 @@
 import django_filters as filters
 from .models import Partner
 import django_filters
+from django.db.models import Q
 
 class PartnerFilter(filters.FilterSet):
     title = filters.CharFilter(field_name='partner_translations__partner_type__title')
