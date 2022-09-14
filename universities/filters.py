@@ -4,13 +4,12 @@ import django_filters
 
 class PartnerFilter(filters.FilterSet):
     title = filters.CharFilter(field_name='partner_translations__partner_type__title')
-    q = django_filters.CharFilter(method='my_custom_filter', label="country_name")
+    country_name = django_filters.CharFilter(method='my_custom_filter')
 
     class Meta:
         model = Partner
         fields = (
             'title',
-            'q',
         )
     
     def my_custom_filter(self, queryset, name, value):
