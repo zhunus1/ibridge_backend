@@ -15,5 +15,5 @@ class PartnerFilter(filters.FilterSet):
     
     def my_custom_filter(self, queryset, name, value):
         return queryset.filter(
-            Q(country__country_name=value) | Q(country__country_slug=value)
+            Q(country__country_name__icontains=value) | Q(country__country_slug__icontains=value)
         )
