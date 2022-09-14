@@ -4,7 +4,7 @@ import django_filters
 
 class PartnerFilter(filters.FilterSet):
     title = filters.CharFilter(field_name='partner_translations__partner_type__title')
-    country_name = django_filters.CharFilter(method='my_custom_filter')
+    country_name = filters.CharFilter(method='my_custom_filter')
 
     class Meta:
         model = Partner
